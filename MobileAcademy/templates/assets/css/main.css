@@ -1,0 +1,320 @@
+body {
+    margin: 0;
+    font-family: 'Roboto',Arial,sans-serif;
+
+    line-height: 1.6;
+    color: rgb(0, 0, 0);
+}
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+.main__block{
+    background: linear-gradient(white, #f5f6f7)
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Intro */
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    
+    background: url("../images/background.PNG") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.intro__inner {
+    width: 100%;
+    max-width: 880px;
+    margin-right: 0 auto;
+
+}
+.intro__title {
+    color: #fff;
+    font-family: 'CormorantInfant';
+    font-size: 70px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    line-height: 1;
+}
+
+/* Header */
+.header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+.header__inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.nav__link{
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.logo{
+    width: 160px;
+}
+.image__icon{
+    margin-right: 5px;
+}
+/* .name_profile{
+    color: white;
+    text-decoration: none;
+} */
+
+/* Button */
+.btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 50px;
+    text-align: center;
+    background: linear-gradient(#6e61cd,#35297f);
+    
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+
+    transition: background .1s linear, color .1s linear;
+}
+.btn:hover {
+    box-shadow: inset 0 2px 10px 1px rgba(0,0,0,.3), inset 0 0 0 60px rgba(0,0,0,.3), 0 1px rgba(255,255,255,.08);
+    background-color: #ffffff;
+}
+
+/* Edication */
+.education{
+    width: 100%;
+}
+.education_inner{
+    width: 100%;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.education_images{
+    width: 60%;
+    float: left;
+    position: relative;
+    text-align: center;
+}
+.education_text{
+    width: 30%;
+    font-size: 20px;
+    margin-left: 60%;
+    text-align: left;
+}
+
+/*Блок: Кому подходит курс?*/
+.skillLevel{
+    width: 100%;
+    margin-bottom: 200px;
+    font-family: 'Roboto',Arial,sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+.skillLevel_title{
+    margin-top: 40px;
+    font-size: 40px;
+}
+#skillLevel_inner_title_text{
+    font-size: 40px;
+}
+.grid{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 100px;
+}
+.grid_item{
+    width: 300px;
+    margin: 0 100px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    border-radius: 10px;
+    padding: 20px;
+
+}
+#grid_title{
+    font-size: 30px;
+}
+#grid_text{
+    font-weight: 100;
+    font-size: 20px;
+    color: black;
+    line-height: 25px;
+}
+#image{
+
+}
+
+/* Aplication */
+.aplication{
+    width: 100%;
+}
+.aplication__inner{
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+#aplication_title{
+    font-size: 44px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.aplication_block{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.aplication_block--right{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.aplication__digit{
+    padding-left: 20px;
+}
+.aplication__description{
+    width: 50%;
+    padding-left: 40px;
+    font-family: 'Roboto',Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+.aplication__part{
+   width: 60%;
+
+   font-family: Museo Sans Cyrl;
+   font-weight: 700;
+}
+.aplication_digit{
+    font-family:'SF Pro Display';
+    font-weight:700;
+    font-size: 140px;
+    color:#e1e5ea
+}
+.aplication__part--right{
+    width: 52%;
+    text-align: right;
+    font-family: Museo Sans Cyrl;
+    font-weight: 700;
+}
+
+/*Team*/
+.team{
+    width: 100%;
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+.team_header{
+    text-align: center;
+    font-weight: 600;
+    font-size: 38px;
+    margin-bottom: 50px;
+}
+.team_header_text{
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 1.50;
+    max-width: 500px;
+    margin: 30px auto;
+}
+.team_photos{
+    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+}
+.team_photos_avatar{
+    width: 220px;
+}
+#Photo{
+    border-radius: 100%;
+}
+#name{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+#descr{
+    font-weight: 100;
+    font-size: 20px;
+    color: #7a7a7a;
+}
+
+/* Footer */
+.footer{
+    width: 100%;
+    background: #18105d;
+}
+.footer_inner{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+}
+.footer_left{
+    width: 60%;
+}
+.footer_left_logo{
+    font-size: 18px;
+    display: flex;
+    justify-content: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.footer_left_social{
+    padding-top: 10px;
+}
+.footer_left_social_img{
+    padding: 10px;
+}
+.footer_right{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+    margin: auto 0;
+    image-rendering: auto;
+    width: 50%;
+    text-align: left;
+}
+.footer_right_course_header{
+    padding-bottom:10px ;
+    font-size: 18px ;
+    font-weight: 200;
+}
+.footer_right_lection_header{
+    padding-bottom:10px ;
+    font-size: 18px ;
+    font-weight: 200;
+}
+.footer_right_course_descr{
+    color:#b3b3b3;
+}
+.footer_right_lection_descr{
+    color:#b3b3b3;
+}
