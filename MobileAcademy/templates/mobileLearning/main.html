@@ -1,38 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
-    <title>Главная</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}<link rel="stylesheet" href="{% static 'css/main.css'%}">{% endblock head %}
+{% block title %}MobileAcademy{% endblock title %}
+
+{% block content %}
 <div class="main__block">
     <header class="header">
         <div class="container">
             <div class="header__inner">
                 <div class="navigation">
-                    <a class="nav__link" href="#">
-                        <img class="image__icon" src="assets/images/Course.svg" alt="Курсы" width="15">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfCourse' %}">
+                        <img class="image__icon" src="{% static 'images/Course.svg' %}" alt="Курсы" width="15">
                         Курсы
                     </a>
                     <a class="nav__link" href="#">
-                        <img class="image__icon" src="assets/images/Lection.svg" alt="Лекции" width="15">
+                        <img class="image__icon" src="{% static 'images/Lection.svg' %}" alt="Лекции" width="15">
                         Лекции
                     </a>
                 </div>
-                <img class="logo" src="assets/images/Logo.svg" alt="Logo">
+                <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <!-- <div class="profile">
                     <img class="image__icon" src="assets/images/img_login.svg" alt="login" width="20">
                     <a class="name_profile" href="#">Ксения Митрофанова</a>
                 </div> -->
                 <div class="nav__link_auth">
-                    <a class="nav__link" href="#" >
-                        <img class="image__icon" src="/assets/images/LogIn.svg" width = "15" alt="">
+                    <a class="nav__link" href="{% url 'mobileLearning:login' %}" >
+                        <img class="image__icon" src="{% static 'images/LogIn.svg' %}" width = "15" alt="">
                         Вход
                     </a>
-                    <a class="nav__link" href="#" >
-                        <img class="image__icon" src="/assets/images/RegistrationTwo.svg" width="15" alt="">
+                    <a class="nav__link" href="{% url 'mobileLearning:registration' %}" >
+                        <img class="image__icon" src="{% static 'images/RegistrationTwo.svg' %}" width="15" alt="">
                         Регистрация
                     </a>
                 </div>
@@ -56,7 +53,7 @@
         <div class="container">
             <div class="education_inner">
                 <div class="education_images">
-                    <img id="education_images_one" src="/assets/images/phones_1.png" alt="One" width="400"/>
+                    <img id="education_images_one" src="{% static 'images/phones_1.png' %}" alt="One" width="400"/>
                 </div>
                 <div class="education_text">
                     <h1>Обучение</h1>
@@ -86,17 +83,17 @@
             <div class="skillLevel_wrapper">
                 <div class="grid">
                     <div class="grid_item">
-                        <img id="image"  src="assets/images/beginner.png" alt="beginnner">
+                        <img id="image"  src="{% static 'images/beginner.png' %}" alt="beginnner">
                         <h2 id="grid_title">Новичок</h2>
                         <p id="grid_text">Возможность начать карьеру в IT.</p>
                     </div>
                     <div class="grid_item">
-                        <img id="image" src="assets/images/amateur.png" alt="amateur">
+                        <img id="image" src="{% static 'images/amateur.png' %}" alt="amateur">
                         <h2 id="grid_title">Любитель</h2>
                         <p id="grid_text">Повышение профессионального уровня программирования.</p>
                     </div>
                     <div class="grid_item">
-                        <img id="image" src="assets/images/profi.png" alt="profi">
+                        <img id="image" src="{% static 'images/profi.png' %}" alt="profi">
                         <h2 id="grid_title">Профи</h2>
                         <p id="grid_text">Научитесь создавать мобильные приложения для любых проектов.</p>
                     </div>
@@ -175,22 +172,22 @@
             </div>
             <div class="team_photos">
                 <div class="team_photos_avatar">
-                    <img id="Photo" src="assets/images/Max2.jpg" alt="Max">
+                    <img id="Photo" src="{% static 'images/Max2.jpg' %}" alt="Max">
                     <p id="name">Щербаков Максим</p>
                     <p id="descr">Разработчик frontend</p>
                 </div>
                 <div class="team_photos_avatar">
-                    <img id="Photo" src="assets/images/Denis.jpg" alt="Denis">
+                    <img id="Photo" src="{% static 'images/Denis.jpg' %}" alt="Denis">
                     <p id="name">Панкратов Денис</p>
                     <p id="descr">Разработчик backend</p>
                 </div>
                 <div class="team_photos_avatar">
-                    <img id="Photo" src="assets/images/Artem.jpg" alt="Artem">
+                    <img id="Photo" src="{% static 'images/Artem.jpg' %}" alt="Artem">
                     <p id="name">Хорев Артём</p>
                     <p id="descr">Разработчик frontend</p>
                 </div>
                 <div class="team_photos_avatar">
-                    <img id="Photo" src="assets/images/Ksenia.jpg" alt="Ksenia">
+                    <img id="Photo" src="{% static 'images/Ksenia.jpg' %}" alt="Ksenia">
                     <p id="name">Митрофанова Ксения</p>
                     <p id="descr">Разработчик веб-дизайна</p>
                 </div>
@@ -205,27 +202,27 @@
         <div class="footer_inner">
             <div class="footer_left">
                 <div class="footer_left_logo">
-                    <img  src="/assets/images/Logo.svg" alt="logo" width="200"/>
+                    <img  src="{% static 'images/Logo.svg' %}" alt="logo" width="200"/>
                 </div>
                 <div class="footer_left_social">
                     <span class="footer_left_social_img">
-                        <img src="assets/images/vkGray.svg" alt="vk" width="25px"/>
+                        <img src="{% static 'images/vkGray.svg' %}" alt="vk" width="25px"/>
                     </span>
                     <span class="footer_left_social_img">
-                        <img src="assets/images/telegramGray.svg" alt="telegram" width="25px"/>
+                        <img src="{% static 'images/telegramGray.svg' %}" alt="telegram" width="25px"/>
                     </span>
                     <span class="footer_left_social_img">
-                        <img src="assets/images/twiterGray.svg" alt="twiter" width="25px"/>
+                        <img src="{% static 'images/twiterGray.svg' %}" alt="twiter" width="25px"/>
                     </span>
                     <span class="footer_left_social_img">
-                        <img src="assets/images/whatsUpGray.svg" alt="whatsUp" width="25px"/>
+                        <img src="{% static 'images/whatsUpGray.svg' %}" alt="whatsUp" width="25px"/>
                     </span>
                 </div>
             </div>
             <div class="footer_right">
                 <div class="footer_right_course">
                     <div class="footer_right_course_header">
-                        <img src="/assets/images/Course.svg" width="15">
+                        <img src="{% static 'images/Course.svg' %}" width="15">
                         Курсы
                     </div>
                     <div class="footer_right_course_descr">
@@ -237,7 +234,7 @@
                 </div>
                 <div class="footer_right_lection">
                     <div class="footer_right_lection_header">
-                        <img src="/assets/images/Lection.svg" width="15">
+                        <img src="{% static 'images/Lection.svg' %}" width="15">
                         <span>Лекции</span>
                     </div>
                     <div class="footer_right_lection_descr">
@@ -251,5 +248,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+{% endblock content %}
