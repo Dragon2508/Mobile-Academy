@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}  
+
+    {% block head %}<link rel="stylesheet" href="{% static 'css/testing.css'%}">{% endblock head %}
+    {% block title %}Тестирование{% endblock title %}
+
+{% block content %}
+    <!-- Заголовок   -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="navigation">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfCourse' %}">
+                        <img class="image__icon" src="{% static 'images/Course.svg'%}" alt="Курсы" width="15">
+                        Курсы
+                    </a>
+                    <a class="nav__link" href="#">
+                        <img class="image__icon" src="{% static 'images/Lection.svg'%}" alt="Лекции" width="15">
+                        Лекции
+                    </a>
+                </div>
+                <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
+                <div class="profile">
+                    <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
+                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">Ксения Митрофанова</a>
+                </div>
+                <!-- <div class="nav__link_auth">
+                    <a class="nav__link" href="#" >
+                        <img class="image__icon" src="/assets/images/LogIn.svg" width = "15" alt="">
+                        Вход
+                    </a>
+                    <a class="nav__link" href="#" >
+                        <img class="image__icon" src="/assets/images/RegistrationTwo.svg" width="15" alt="">
+                        Регистрация
+                    </a>
+                </div> -->
+            </div>
+        </div>
+    </header>
+    <div class="course">
+        <div class="container">
+            <div class="course_inner">
+                <div class="course_title">
+                    <p>
+                        Тестирование
+                    </p>
+                </div>   
+                <p>А теперь для заврешения курса необходимо ответить на простенькие вопросы. Готовы?</p>
+                <div class="block__btn">
+                    <button class="btn_answer">Да</button>
+                    <button class="btn_answer">Нет</button>
+                </div>
+                <p>1. На каком языке программирования прописывается логика приложения на Xamarin:</p>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>a. C++</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>b. C#</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>c. HTML</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>d. JavaScript</span>
+                </div>
+                <p>2. Для каких операционных систем можно разрабатывать приложения на Xamarin:</p>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>a. Android</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>b. Android, IOS</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>c. Windows</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>d. Все перечисленные</span>
+                </div>
+                <p>3. С помощью какого кода можно создать кнопку с текстом “Кнопка” в XAML:</p>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>a. &ltButton Text="Кнопка"/&gt</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>&ltLabel Text="Кнопка"/&gt</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>&ltBoxView Text="Кнопка"/&gt</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>&ltImageButton Text="Кнопка"/&gt</span>
+                </div>
+                <p>4. С помощью какой горячей клавиши можно запустить приложение:</p>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>a. F7</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>b. F5</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>c. CTRL + S</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>d. CTRL + ALT + DELETE</span>
+                </div>
+                <p>5. Как задать имя элемента в XAML:</p>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>a. Name</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>b. x::Name</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>c. x:Name</span>
+                </div>
+                <div class="select__radio">
+                    <input type="radio">
+                    <span>d. c:Name</span>
+                </div>
+                <div class="block__btn">
+                    <button class="btn_answer">Подвести итоги</button>
+                </div>
+                <div class="finish__course">
+                    <img src="{% static 'images/course/testing/smile.png'%}" width="40%" alt=""/>
+                    <div class="finish__course--right">
+                        <p><b>Поздравляю!</b></p>
+                        <p>Вы прошли курс ознакомления с Xamarin. </p>
+                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
+                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
+                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
+                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
+                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
