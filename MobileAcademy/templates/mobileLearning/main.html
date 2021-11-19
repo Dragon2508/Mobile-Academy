@@ -13,7 +13,7 @@
                         <img class="image__icon" src="{% static 'images/Course.svg' %}" alt="Курсы" width="15">
                         Курсы
                     </a>
-                    <a class="nav__link" href="#">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfLection' %}">
                         <img class="image__icon" src="{% static 'images/Lection.svg' %}" alt="Лекции" width="15">
                         Лекции
                     </a>
@@ -43,7 +43,7 @@
             <div class="intro__inner">
                 <h1 class="intro__title">Создание мобильных приложений</h1>
 
-                <a class="btn" href="#">БЫСТРЫЙ СТАРТ</a>
+                <a class="btn" href="{% url 'mobileLearning:lessonOne'%}">БЫСТРЫЙ СТАРТ</a>
             </div>
         </div>
     </div>
