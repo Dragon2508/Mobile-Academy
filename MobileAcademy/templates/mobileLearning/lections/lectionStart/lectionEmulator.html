@@ -23,7 +23,7 @@
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
                     <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">К{{request.user}}</a>
+                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
                 </div>
             </div>
         </div>
