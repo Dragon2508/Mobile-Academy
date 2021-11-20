@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+{% load static %}  
+
+    {% block head %}<link rel="stylesheet" href="{% static 'css/lections/lectionStart/lectionVisual.css'%}">{% endblock head %}
+    {% block title %}Visual Studio{% endblock title %}
+
+{% block content %}
+    <!-- Заголовок   -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="navigation">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfCourse' %}">
+                        <img class="image__icon" src="{% static 'images/Course.svg'%}" alt="Курсы" width="15">
+                        Курсы
+                    </a>
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfLection' %}">
+                        <img class="image__icon" src="{% static 'images/Lection.svg'%}" alt="Лекции" width="15">
+                        Лекции
+                    </a>
+                </div>
+                <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
+                <div class="profile">
+                    <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
+                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="course">
+        <div class="container">
+            <div class="course_inner">
+                <div class="course_title">
+                    <p>
+                        Начало работы с Visual Studio
+                    </p>
+                </div>
+                <!-- <p>Xamarin можно установить в рамках нового процесса установки Visual Studio 2019, выполнив следующие действия: </p>    
+                <p>1. Скачайте Visual Studio 2019 Community, Visual Studio Professional или Visual Studio Enterprise со страницы Visual Studio (https://visualstudio.microsoft.com/ru/downloads). </p>
+                <p>2. Дважды щелкните скачанный пакет, чтобы начать установку</p>
+                <p>3. На экране установки выберите рабочую нагрузку Разработка мобильных приложений на платформе .NET: </p>
+                <img class="course_image" src="{% static 'images/course/lesson_1/Screenshot_1.png'%}" width="100%"/>
+                <p>4. Если вы готовы начать установку Visual Studio 2019, нажмите кнопку Установить в правом нижнем углу: </p>
+                <img class="course_image" src="{% static 'images/course/lesson_1/Screenshot_2.png'%}" width="100%"/>
+                <p>5.После установки Visual Studio 2019 нажмите кнопку Запустить, чтобы запустить Visual Studio: </p>
+                <img class="course_image" src="{% static 'images/course/lesson_1/Screenshot_3.png'%}" width="100%"/>
+            </div>
+            <div class="arrows">
+                <a id="arrows_left" href="{% url 'mobileLearning:listOfCourse' %}">
+                    <img src="{% static 'images/course/arrow.png'%}" width="10%"/>
+                </a>
+                <a id="arrows_right" href="{% url 'mobileLearning:lessonTwo' %}">
+                    <img src="{% static 'images/course/arrow.png'%}" width="10%"/>
+                </a>
+            </div> -->
+        </div>
+    </div>
+{% endblock content %}

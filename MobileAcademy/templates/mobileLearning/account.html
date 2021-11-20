@@ -10,7 +10,7 @@
         <div class="container">
             <div class="header__inner">
                 <div class="navigation">
-                    <a class="nav__link" href="#">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfCourse'%}">
                         <img class="image__icon" src="{% static 'images/Course.svg'%}" alt="Курсы" width="15">
                         Курсы
                     </a>
@@ -22,7 +22,7 @@
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
                     <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    <a class="name_profile" href="#">Ксения Митрофанова</a>
+                    <a class="name_profile" href="#">{{request.user}}</a>
                 </div>
             </div>
         </div>

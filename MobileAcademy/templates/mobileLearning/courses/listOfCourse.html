@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}
 {% load static %}  
-    {% block head %}<link rel="stylesheet" href="{% static 'css/listOfCourse.css'%}">{% endblock head %}
+    {% block head %}<link rel="stylesheet" href="{% static 'css/courses/listOfCourse.css'%}">{% endblock head %}
     {% block title %}Список курсов{% endblock title %}
 
 {% block content %}
@@ -15,26 +15,29 @@
                         <img class="image__icon" src="{% static 'images/Course.svg'%}" alt="Курсы" width="15">
                         Курсы
                     </a>
-                    <a class="nav__link" href="#">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfLection' %}">
                         <img class="image__icon" src="{% static 'images/Lection.svg'%}" alt="Лекции" width="15">
                         Лекции
                     </a>
                 </div>
                <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
-                <div class="profile">
-                    <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">Ксения Митрофанова</a>
-                </div>
-                <!-- <div class="nav__link_auth">
-                    <a class="nav__link" href="#" >
-                        <img class="image__icon" src="/assets/images/LogIn.svg" width = "15" alt="">
-                        Вход
-                    </a>
-                    <a class="nav__link" href="#" >
-                        <img class="image__icon" src="/assets/images/RegistrationTwo.svg" width="15" alt="">
-                        Регистрация
-                    </a>
-                </div> -->
+               {% if request.user.is_authenticated %}
+                    <div class="profile">
+                        <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
+                        <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
+                    </div>
+                {% else %}
+                    <div class="nav__link_auth">
+                        <a class="nav__link" href="{% url 'mobileLearning:login' %}" >
+                            <img class="image__icon" src="{% static 'images/Login.svg'%}" width = "15" alt="">
+                            Вход
+                        </a>
+                        <a class="nav__link" href="#" >
+                            <img class="image__icon" src="{% static 'images/RegistrationTwo.svg'%}" width="15" alt="">
+                            Регистрация
+                        </a>
+                    </div>
+                {%endif%}
             </div>
         </div>
     </header>
@@ -83,19 +86,33 @@
                         </div>
                         <div class="listCourses_inner_content_block">
                             <div class="block_content">
-                                <a href="{% url 'mobileLearning:lessonOne' %}">
-                                    <div class="block_content_title">
-                                        Старт в Android: создай первое своё приложение
-                                    </div>
-                                    <div class="block_content_image">
-                                        <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
-                                    </div>
-                                    <div class="block_content_time">
-                                        1 месяц
-                                    </div>
-                                </a>
+                                {% if request.user.is_authenticated %}
+                                    <a href="{% url 'mobileLearning:lessonOne' %}">
+                                        <div class="block_content_title">
+                                            Старт в Android: создай первое своё приложение
+                                        </div>
+                                        <div class="block_content_image">
+                                            <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                        </div>
+                                        <div class="block_content_time">
+                                            1 месяц
+                                        </div>
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'mobileLearning:registration' %}">
+                                        <div class="block_content_title">
+                                            Старт в Android: создай первое своё приложение
+                                        </div>
+                                        <div class="block_content_image">
+                                            <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                        </div>
+                                        <div class="block_content_time">
+                                            1 месяц
+                                        </div>
+                                    </a>
+                                {% endif %}
                             </div>
-                            <div class="block_content">
+                            <div class="block_content no-active">
                                 <div class="block_content_title">
                                     Старт в Android: создай первое своё приложение
                                 </div>
@@ -108,7 +125,7 @@
                             </div>
                         </div>
                         <div class="listCourses_inner_content_block">
-                            <div class="block_content">
+                            <div class="block_content no-active">
                                 <div class="block_content_title">
                                     Старт в Android: создай первое своё приложение
                                 </div>
@@ -119,7 +136,7 @@
                                     1 месяц
                                 </div>
                             </div>
-                            <div class="block_content">
+                            <div class="block_content no-active">
                                 <div class="block_content_title">
                                     Старт в Android: создай первое своё приложение
                                 </div>
@@ -132,7 +149,7 @@
                             </div>
                         </div>
                         <div class="listCourses_inner_content_block">
-                            <div class="block_content">
+                            <div class="block_content no-active">
                                 <div class="block_content_title">
                                     Старт в Android: создай первое своё приложение
                                 </div>
@@ -143,7 +160,7 @@
                                     1 месяц
                                 </div>
                             </div>
-                            <div class="block_content">
+                            <div class="block_content no-active">
                                 <div class="block_content_title">
                                     Старт в Android: создай первое своё приложение
                                 </div>
@@ -161,7 +178,7 @@
         </div>
     </div>
 
-   <!-- Подвал -->
+   <!-- Подвал
     <div class="footer">
         <div class="container">
             <div class="footer_inner">
@@ -212,5 +229,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 {% endblock content %}

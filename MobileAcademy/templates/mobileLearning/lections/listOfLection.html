@@ -1,0 +1,236 @@
+
+{% extends 'base.html' %}
+{% load static %}  
+    {% block head %}<link rel="stylesheet" href="{% static 'css/lections/listOfLection.css'%}">{% endblock head %}
+    {% block title %}Список лекций{% endblock title %}
+
+{% block content %}
+
+<!-- Заголовок   -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="navigation">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfCourse'%}">
+                        <img class="image__icon" src="{% static 'images/Course.svg'%}" alt="Курсы" width="15">
+                        Курсы
+                    </a>
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfLection'%}">
+                        <img class="image__icon" src="{% static 'images/Lection.svg'%}" alt="Лекции" width="15">
+                        Лекции
+                    </a>
+                </div>
+               <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
+                {% if request.user.is_authenticated %}
+                    <div class="profile">
+                        <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
+                        <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
+                    </div>
+                {% else %}
+                    <div class="nav__link_auth">
+                        <a class="nav__link" href="{% url 'mobileLearning:login' %}" >
+                            <img class="image__icon" src="{% static 'images/Login.svg'%}" width = "15" alt="">
+                            Вход
+                        </a>
+                        <a class="nav__link" href="#" >
+                            <img class="image__icon" src="{% static 'images/RegistrationTwo.svg'%}" width="15" alt="">
+                            Регистрация
+                        </a>
+                    </div>
+                {%endif%}
+            </div>
+        </div>
+    </header>
+
+    <!-- Главная -->
+    <div class="listCourses">
+        <div class="container">
+            <div class="listCourses_inner">
+                <div class="listCourses_inner_search">
+                    <input id="image_search" type="image" src="{% static 'images/Search.svg'%}" width="10"/>
+                    <input type="search" placeholder="Поиск"/>
+                </div>
+                <div class="lineForSearch"></div>
+                <div class="listCourses_inner_block">
+                    <div class="listCourses_inner_nav">
+                        <div class="listCourses_inner_element">
+                            <p class="navAll">Все направления</p>
+                        </div>
+                        <div class="listCourses_inner_element">
+                            <p class="navAll">Android</p>
+                        </div>
+                        <div class="listCourses_inner_element">
+                            <p class="navAll">IOS</p>
+                        </div>
+                        <div class="lineForSearch"></div>
+                        <div class="titleLevel">
+                            <p>Уровень сложности</p>
+                        </div>
+                        <div class="typeLevel">
+                            <input type="radio">
+                            <span>Любой</span>
+                        </div>
+                        <div class="typeLevel">
+                            <input type="radio">
+                            <span>Для новичков</span>
+                        </div>
+                        <div class="typeLevel">
+                            <input type="radio">
+                            <span>Для специалистов</span>
+                        </div>
+                    </div>
+                    <div class="listCourses_inner_content">
+                        <div class="listCourses_inner_content_title">
+                            <div class="course__style">Лекции</div>
+                            <div class="list__style">4 лекции</div>
+                        </div>
+                        <div class="listCourses_inner_content_block">
+                            <div class="block_content">
+                                <a href="{% url 'mobileLearning:lectionVisual' %}">
+                                    <div class="block_content_title">
+                                        Тут будет лекция про Visual Studio
+                                    </div>
+                                    <div class="block_content_image">
+                                        <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                    </div>
+                                    <div class="block_content_time">
+                                        12 мин
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="block_content">
+                                <a href="{% url 'mobileLearning:lectionCSharp' %}">
+                                    <div class="block_content_title">
+                                        Тут будет лекция про эмулятор Android
+                                    </div>
+                                    <div class="block_content_image">
+                                        <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                    </div>
+                                    <div class="block_content_time">
+                                        10 мин
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="block_content">
+                                <a href="{% url 'mobileLearning:lectionEmulator' %}">
+                                    <div class="block_content_title">
+                                        Тут будет лекция про C#
+                                    </div>
+                                    <div class="block_content_image">
+                                        <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                    </div>
+                                    <div class="block_content_time">
+                                        7 мин
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="listCourses_inner_content_block">
+                            <div class="block_content">
+                                <a href="{% url 'mobileLearning:lectionXamarin' %}">
+                                    <div class="block_content_title">
+                                        Тут будет лекция про Xamarin
+                                    </div>
+                                    <div class="block_content_image">
+                                        <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                    </div>
+                                    <div class="block_content_time">
+                                        15 мин
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- <div class="block_content">
+                                <div class="block_content_title">
+                                    Старт в Android: создай первое своё приложение
+                                </div>
+                                <div class="block_content_image">
+                                    <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                </div>
+                                <div class="block_content_time">
+                                    1 месяц
+                                </div>
+                            </div> -->
+                        </div>
+                        <!-- <div class="listCourses_inner_content_block">
+                            <div class="block_content">
+                                <div class="block_content_title">
+                                    Старт в Android: создай первое своё приложение
+                                </div>
+                                <div class="block_content_image">
+                                    <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                </div>
+                                <div class="block_content_time">
+                                    1 месяц
+                                </div>
+                            </div>
+                            <div class="block_content">
+                                <div class="block_content_title">
+                                    Старт в Android: создай первое своё приложение
+                                </div>
+                                <div class="block_content_image">
+                                    <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                </div>
+                                <div class="block_content_time">
+                                    1 месяц
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Подвал -->
+    <!-- <div class="footer">
+        <div class="container">
+            <div class="footer_inner">
+                <div class="footer_left">
+                    <div class="footer_left_logo">
+                        <img  src="{% static 'images/Logo.svg'%}" alt="logo" width="200"/>
+                    </div>
+                    <div class="footer_left_social">
+                        <span class="footer_left_social_img">
+                            <img src="{% static 'images/vkGray.svg'%}" alt="vk" width="25px"/>
+                        </span>
+                        <span class="footer_left_social_img">
+                            <img src="{% static 'images/telegramGray.svg'%}" alt="telegram" width="25px"/>
+                        </span>
+                        <span class="footer_left_social_img">
+                            <img src="{% static 'images/twiterGray.svg'%}" alt="twiter" width="25px"/>
+                        </span>
+                        <span class="footer_left_social_img">
+                            <img src="{% static 'images/whatsUpGray.svg'%}" alt="whatsUp" width="25px"/>
+                        </span>
+                    </div>
+                </div>
+                <div class="footer_right">
+                    <div class="footer_right_course">
+                        <div class="footer_right_course_header">
+                            <img src="{% static 'images/Course.svg'%}" width="15">
+                            Курсы
+                        </div>
+                        <div class="footer_right_course_descr">
+                            <div>Создание курса с 0 под Android</div>
+                            <div>Создание курса с 0 под Android</div>
+                            <div>Создание курса с 0 под Android</div>
+                            <div>Создание курса с 0 под Android</div>
+                        </div>
+                    </div>
+                    <div class="footer_right_lection">
+                        <div class="footer_right_lection_header">
+                            <img src="{% static 'images/Lection.svg'%}" width="15">
+                            <span>Лекции</span>
+                        </div>
+                        <div class="footer_right_lection_descr">
+                            <div>Создание курса с 0 под Android</div>
+                            <div>Создание курса с 0 под Android</div>
+                            <div>Создание курса с 0 под Android</div>
+                            <div>Создание курса с 0 под Android</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+{% endblock content %}

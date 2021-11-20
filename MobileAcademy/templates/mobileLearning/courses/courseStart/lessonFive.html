@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}  
 
-    {% block head %}<link rel="stylesheet" href="{% static 'css/lessonFive.css'%}">{% endblock head %}
+    {% block head %}<link rel="stylesheet" href="{% static 'css/courses/courseStart/lessonFive.css'%}">{% endblock head %}
     {% block title %}Урок 5{% endblock title %}
     
 {% block content %}
@@ -14,7 +14,7 @@
                         <img class="image__icon" src="{% static 'images/Course.svg'%}" alt="Курсы" width="15">
                         Курсы
                     </a>
-                    <a class="nav__link" href="#">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfLection' %}">
                         <img class="image__icon" src="{% static 'images/Lection.svg'%}" alt="Лекции" width="15">
                         Лекции
                     </a>
@@ -22,7 +22,7 @@
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
                     <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">Ксения Митрофанова</a>
+                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
                 </div>
                 <!-- <div class="nav__link_auth">
                     <a class="nav__link" href="#" >
@@ -94,11 +94,11 @@
                 </div>
             </div>
             <div class="arrows">
-                <a href="{% url 'mobileLearning:lessonFour' %}">
-                    <img id="arrows_left" src="{% static 'images/course/arrow.png'%}" width="5%"/>
+                <a id="arrows_left" href="{% url 'mobileLearning:lessonFour' %}">
+                    <img src="{% static 'images/course/arrow.png'%}" width="5%"/>
                 </a>
-                <a href="{% url 'mobileLearning:lessonSix' %}">
-                    <img id="arrows_right" src="{% static 'images/course/arrow.png'%}" width="5%"/>
+                <a id="arrows_right" href="{% url 'mobileLearning:lessonSix' %}">
+                    <img src="{% static 'images/course/arrow.png'%}" width="5%"/>
                 </a>
             </div>
         </div>

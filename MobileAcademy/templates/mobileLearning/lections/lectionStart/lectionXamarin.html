@@ -2,8 +2,8 @@
 {% extends 'base.html' %}
 {% load static %}  
 
-    {% block head %}<link rel="stylesheet" href="{% static 'css/lessonOne.css'%}">{% endblock head %}
-    {% block title %}Урок 1{% endblock title %}
+    {% block head %}<link rel="stylesheet" href="{% static 'css/lections/lectionStart/lectionXamarin.css'%}">{% endblock head %}
+    {% block title %}Xamarin{% endblock title %}
 
 {% block content %}
     <!-- Заголовок   -->
@@ -15,7 +15,7 @@
                         <img class="image__icon" src="{% static 'images/Course.svg'%}" alt="Курсы" width="15">
                         Курсы
                     </a>
-                    <a class="nav__link" href="#">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfLection' %}">
                         <img class="image__icon" src="{% static 'images/Lection.svg'%}" alt="Лекции" width="15">
                         Лекции
                     </a>
@@ -23,18 +23,8 @@
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
                     <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">Ксения Митрофанова</a>
+                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
                 </div>
-                <!-- <div class="nav__link_auth">
-                    <a class="nav__link" href="#" >
-                        <img class="image__icon" src="{% static 'images/LogIn.svg'%}" width = "15" alt="">
-                        Вход
-                    </a>
-                    <a class="nav__link" href="#" >
-                        <img class="image__icon" src="/assets/images/RegistrationTwo.svg" width="15" alt="">
-                        Регистрация
-                    </a>
-                </div> -->
             </div>
         </div>
     </header>
@@ -43,10 +33,10 @@
             <div class="course_inner">
                 <div class="course_title">
                     <p>
-                        Установка Visual Studio
+                        Знакомство с Xamarin
                     </p>
                 </div>
-                <p>Xamarin можно установить в рамках нового процесса установки Visual Studio 2019, выполнив следующие действия: </p>    
+                <!-- <p>Xamarin можно установить в рамках нового процесса установки Visual Studio 2019, выполнив следующие действия: </p>    
                 <p>1. Скачайте Visual Studio 2019 Community, Visual Studio Professional или Visual Studio Enterprise со страницы Visual Studio (https://visualstudio.microsoft.com/ru/downloads). </p>
                 <p>2. Дважды щелкните скачанный пакет, чтобы начать установку</p>
                 <p>3. На экране установки выберите рабочую нагрузку Разработка мобильных приложений на платформе .NET: </p>
@@ -57,13 +47,13 @@
                 <img class="course_image" src="{% static 'images/course/lesson_1/Screenshot_3.png'%}" width="100%"/>
             </div>
             <div class="arrows">
-                <a href="{% url 'mobileLearning:listOfCourse' %}">
-                    <img id="arrows_left" src="{% static 'images/course/arrow.png'%}" width="5%"/>
+                <a id="arrows_left" href="{% url 'mobileLearning:listOfCourse' %}">
+                    <img src="{% static 'images/course/arrow.png'%}" width="10%"/>
                 </a>
-                <a href="{% url 'mobileLearning:lessonTwo' %}">
-                    <img id="arrows_right" src="{% static 'images/course/arrow.png'%}" width="5%"/>
+                <a id="arrows_right" href="{% url 'mobileLearning:lessonTwo' %}">
+                    <img src="{% static 'images/course/arrow.png'%}" width="10%"/>
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 {% endblock content %}

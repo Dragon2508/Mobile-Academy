@@ -5,11 +5,11 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    second_name = models.CharField('Отчество', max_length= 150)
-    birth_date = models.DateField('Дата рождения', blank=True)
-    phone = models.CharField('Телефон', blank=True, max_length = 12)
-    city = models.CharField('Город', blank=True, max_length = 150)
-    region = models.CharField('Область', blank=True, max_length = 150)
+    second_name = models.CharField('Отчество', blank=True, null = True, max_length= 150)
+    birth_date = models.DateField('Дата рождения', blank=True, null = True)
+    phone = models.CharField('Телефон', blank=True, null = True,  max_length = 12)
+    city = models.CharField('Город', blank=True, null = True,  max_length = 150)
+    region = models.CharField('Область', blank=True, null = True,  max_length = 150)
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-from  django.conf.global_settings import STATIC_URL, STATIC_ROOT
+from django.conf.global_settings import STATIC_URL, STATIC_ROOT
 
 urlpatterns = [
     path('', include('mobileLearning.urls')),
