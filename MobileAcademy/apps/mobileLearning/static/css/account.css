@@ -123,11 +123,11 @@ input{
 input:focus{
     outline: 0;
 }
-::-webkit-datetime-edit-day-field,
+/* ::-webkit-datetime-edit-day-field,
 ::-webkit-datetime-edit-month-field,
 ::-webkit-datetime-edit-year-field{
     color: transparent;
-}
+} */
 .block__btn--save{
     width: 100%;
     text-align: center;

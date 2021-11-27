@@ -6,6 +6,19 @@ from .forms  import CustomUserCreationForm
 
 # mobileLearning/
 def account(request):
+    if request.POST:
+        post_data = request.POST
+        if 'btnSave' in post_data:
+            request.user.last_name = request.POST['last_name']
+            request.user.first_name = request.POST['first_name']
+            request.user.profile.second_name = request.POST['second_name']
+            print(request.POST['birth_date'])
+            request.user.profile.birth_date = request.POST['birth_date']
+            request.user.email = request.POST['email']
+            request.user.profile.phone = request.POST['phone']
+            request.user.profile.city = request.POST['city']
+            request.user.profile.region = request.POST['region']
+            request.user.save()
     return render(request, 'mobileLearning/account.html')
 def index(request):
     return render(request, 'mobileLearning/main.html')
@@ -54,6 +67,7 @@ def testing(request):
 
 # mobileLearning/lections/
 def listOfLection(request):
+    auth.logout(request)
     return render(request, 'mobileLearning/lections/listOfLection.html')
 
 # mobileLearning/lections/lectionStart/

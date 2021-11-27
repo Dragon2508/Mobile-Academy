@@ -3,7 +3,7 @@
 {% load static %}  
 
     {% block head %}<link rel="stylesheet" href="{% static 'css/account.css'%}">{% endblock head %}
-    {% block title %}Личный кабинет{% endblock title %}
+    {% block title %}Личный кабинт{% endblock title %}
 
 {% block content %}
     <header class="header">
@@ -28,50 +28,52 @@
         </div>
     </header>
     <div class="account">
-        <div class="content">
-            <div class="img_cancel">
-                <a href="#"><img src="{% static 'images/cancel.svg'%}" alt="cancel" width="15"></a>
-            </div>
-            <div class="conteiner_inner">
-                <div class="inner_photo">
-                    <div class="photo_profile">
-                        <img src="{% static 'images/photo.svg'%}" alt="Photo" width="260">
+        <form action = "{% url 'mobileLearning:account' %}" method = POST>
+        {% csrf_token %}
+            <div class="content">
+                <div class="img_cancel">
+                    <a href="#"><img src="{% static 'images/cancel.svg'%}" alt="cancel" width="15"></a>
+                </div>
+                <div class="conteiner_inner">
+                    <div class="inner_photo">
+                        <div class="photo_profile">
+                            <img src="{% static 'images/photo.svg'%}" alt="Photo" width="260">
+                        </div>
+                        <button class="btn_download" name="btnDownload">
+                            <img src="{% static 'images/btn_camera.svg'%}" alt="Camera" width="20">
+                            <p id="btn_download_text">ЗАГРУЗИТЬ ФОТО</p>
+                        </button>
+                        <button class="btn_delete" name="btnDelete">
+                            <p>УДАЛИТЬ</p>
+                        </button>
                     </div>
-                    <button class="btn_download">
-                        <img src="{% static 'images/btn_camera.svg'%}" alt="Camera" width="20">
-                        <p id="btn_download_text">ЗАГРУЗИТЬ ФОТО</p>
-                    </button>
-                    <button class="btn_delete">
-                        <p>УДАЛИТЬ</p>
-                    </button>
-                </div>
-                <div class="inner__block">
-                    <p>Фамилия: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
-                    <input type="text">
-                    <p>Имя: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
-                    <input type="text">
-                    <p>Отчество: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
-                    <input type="text">
-                    <p>Дата рождения:</p>
-                    <input type="date">
-    
-                </div>
-                <div class="inner__block">
-                    <p>Почта: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
-                    <input type="email">
-                    <p>Телефон:</p>
-                    <input type="text">
-                    <p>Город:</p>
-                    <input type="text">
-                    <p>Область:</p>
-                    <input type="text">
+                    <div class="inner__block">
+                        <p>Фамилия: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
+                        <input type="text" name="last_name" value="{{request.user.last_name}}">
+                        <p>Имя: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
+                        <input type="text" name="first_name" value="{{request.user.first_name}}">
+                        <p>Отчество: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
+                        <input type="text" name="second_name" value="{{request.user.profile.second_name}}">
+                        <p>Дата рождения:</p>
+                        <input type="date" name="birth_date" value="{{request.user.profile.birth_date}}">
+                    </div>
+                    <div class="inner__block">
+                        <p>Почта: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
+                        <input type="email" name="email" value="{{request.user.email}}">
+                        <p>Телефон:</p>
+                        <input type="text" name="phone" value="{{request.user.profile.phone}}">
+                        <p>Город:</p>
+                        <input type="text" name="city" value="{{request.user.profile.city}}">
+                        <p>Область:</p>
+                        <input type="text" name="region"  value="{{request.user.profile.region}}">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="block__btn--save">
-            <button class="btn_save">
-                СОХРАНИТЬ
-            </button>
-        </div>
+            <div class="block__btn--save">
+                <button class="btn_save" name="btnSave">
+                    СОХРАНИТЬ
+                </button>
+            </div>
+        </form>
     </div>
 {% endblock content %}
