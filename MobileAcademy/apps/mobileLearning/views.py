@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth.models import User
 from django.contrib import auth
@@ -19,6 +21,7 @@ def account(request):
             request.user.profile.city = request.POST['city']
             request.user.profile.region = request.POST['region']
             request.user.save()
+            return HttpResponseRedirect(reverse('mobileLearning:account'))
     return render(request, 'mobileLearning/account.html')
 def index(request):
     return render(request, 'mobileLearning/main.html')

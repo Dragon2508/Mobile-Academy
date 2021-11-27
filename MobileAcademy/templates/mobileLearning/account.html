@@ -55,7 +55,7 @@
                         <p>Отчество: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
                         <input type="text" name="second_name" value="{{request.user.profile.second_name}}">
                         <p>Дата рождения:</p>
-                        <input type="date" name="birth_date" value="{{request.user.profile.birth_date}}">
+                        <input type="date" name="birth_date" value="{{request.user.profile.birth_date|date:"Y-m-d"}}">
                     </div>
                     <div class="inner__block">
                         <p>Почта: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
