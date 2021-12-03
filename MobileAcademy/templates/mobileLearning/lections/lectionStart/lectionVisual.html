@@ -3,7 +3,7 @@
 {% load static %}  
 
     {% block head %}<link rel="stylesheet" href="{% static 'css/lections/lectionStart/lectionVisual.css'%}">{% endblock head %}
-    {% block title %}Visual Studio{% endblock title %}
+    {% block title %}Microsoft Visual Studio{% endblock title %}
 
 {% block content %}
     <!-- Заголовок   -->
@@ -33,27 +33,64 @@
             <div class="course_inner">
                 <div class="course_title">
                     <p>
-                        Начало работы с Visual Studio
+                        Microsoft Visual Studio
                     </p>
                 </div>
-                <!-- <p>Xamarin можно установить в рамках нового процесса установки Visual Studio 2019, выполнив следующие действия: </p>    
-                <p>1. Скачайте Visual Studio 2019 Community, Visual Studio Professional или Visual Studio Enterprise со страницы Visual Studio (https://visualstudio.microsoft.com/ru/downloads). </p>
-                <p>2. Дважды щелкните скачанный пакет, чтобы начать установку</p>
-                <p>3. На экране установки выберите рабочую нагрузку Разработка мобильных приложений на платформе .NET: </p>
-                <img class="course_image" src="{% static 'images/course/lesson_1/Screenshot_1.png'%}" width="100%"/>
-                <p>4. Если вы готовы начать установку Visual Studio 2019, нажмите кнопку Установить в правом нижнем углу: </p>
-                <img class="course_image" src="{% static 'images/course/lesson_1/Screenshot_2.png'%}" width="100%"/>
-                <p>5.После установки Visual Studio 2019 нажмите кнопку Запустить, чтобы запустить Visual Studio: </p>
-                <img class="course_image" src="{% static 'images/course/lesson_1/Screenshot_3.png'%}" width="100%"/>
+                <p>Microsoft Visual Studio — линейка продуктов компании Microsoft, включающих интегрированную среду разработки программного обеспечения и ряд других инструментов. Данные продукты позволяют разрабатывать как консольные приложения, так и игры и приложения с графическим интерфейсом, в том числе с поддержкой технологии Windows Forms, а также веб-сайты, веб-приложения, веб-службы как в родном, так и в управляемом кодах для всех платформ, поддерживаемых Windows, Windows Mobile, Windows CE, .NET Framework, Xbox, Windows Phone .NET Compact Framework и Silverlight.</p>    
+                <p>Visual Studio включает в себя редактор исходного кода с поддержкой технологии IntelliSense и возможностью простейшего рефакторинга кода. Встроенный отладчик может работать как отладчик уровня исходного кода, так и отладчик машинного уровня. Остальные встраиваемые инструменты включают в себя редактор форм для упрощения создания графического интерфейса приложения, веб-редактор, дизайнер классов и дизайнер схемы базы данных. Visual Studio позволяет создавать и подключать сторонние дополнения (плагины) для расширения функциональности практически на каждом уровне, включая добавление поддержки систем контроля версий исходного кода (как, например, Subversion и Visual SourceSafe), добавление новых наборов инструментов (например, для редактирования и визуального проектирования кода на предметно-ориентированных языках программирования) или инструментов для прочих аспектов процесса разработки программного обеспечения (например, клиент Team Explorer для работы с Team Foundation Server).</p>
+                <p>Компоненты</p>
+                <p>Visual Studio включает один или несколько компонентов из следующих:</p>
+                <p>
+                    <ul>
+                        <li>Visual Basic .NET, а до его появления — Visual Basic</li>
+                        <li>Visual C++</li>
+                        <li>Visual C# (включён начиная с Visual Studio .NET)</li>
+                        <li>Visual F# (включён начиная с Visual Studio 2010)</li>
+                        <li>JavaScript</li>
+                        <li>Python (включён начиная с Visual Studio 2019)</li>
+                        <li>TypeScript</li>
+                        <li>XAML</li>
+
+                    </ul>
+                </p>
+                <p>Многие варианты поставки также включают:</p>
+                <p>
+                    <ul>
+                        <li>Microsoft SQL Server либо Microsoft SQL Server Express</li> 
+                    </ul>
+                </p>
+                <p>В прошлом в состав Visual Studio также входили продукты:</p>
+                <p>
+                    <ul>
+                        <li>Visual InterDev</li> 
+                        <li>Visual J++</li> 
+                        <li>Visual J#</li> 
+                        <li>Visual FoxPro</li> 
+                        <li>Visual Source Safe — файл-серверная система управления версиями</li> 
+                    </ul>
+                </p>
+                <p>Редакции</p>
+                <ol>
+                    <li>Visual Studio Express</li> 
+                        <p>Бесплатная версия. Полностью вытеснена Visual Studio Community Edition, которая представляет собой бесплатный аналог Visual Studio Professional и обладает практически той же функциональностью, что и последняя.</p>
+                    <li>Visual Studio Community</li> 
+                        <p>Полнофункциональная, расширяемая и бесплатная интегрированная среда разработки для создания современных приложений Android, iOS и Windows, а также веб-приложений и облачных служб.</p>
+                    <li>Visual Studio LightSwitch</li>
+                        <p>Microsoft Visual Studio LightSwitch — это среда разработки, нацеленная на создание отрасли приложений, построенных на существующих .NET-технологиях и платформах Microsoft. Создаваемые приложения состоят из трёх ярусов: пользовательский интерфейс на Silverlight; логика и доступ к данным на сервисах WCF RIA и Entity Framework; хранение данных с помощью Microsoft SQL Server Express, Microsoft SQL Server или SQL Azure. LightSwitch также поддерживает другие источники данных, включая SharePoint. LightSwitch включает в себя графические дизайнеры сущностей и их отношений, запросов, а также интерфейса пользователя. Бизнес-логика может быть написана на Visual Basic или на Visual C#. LightSwitch может быть установлен как самостоятельное приложение или как дополнение к Visual Studio 2010 Professional и более высоким редакциям.</p> 
+                    <li>Visual Studio Standard</li>
+                        <p>Данная редакция предоставляет IDE для всех поддерживаемых продуктов и поддерживает полную версию библиотеки MSDN. Поддерживается как редактирование XML и XSLT, так и средства для тестирования объектов. Однако отсутствует обозреватель серверов и интеграция с Microsoft SQL Server. Поддержка разработки под мобильные устройства изначально была включена в Visual Studio 2005 Standard, но в версии 2008 она доступна только в Professional-редакции. Начиная с версии 2010, редакции Standard более не существует.</p> 
+                    <li>Visual Studio Standard</li> 
+                        <p>Редакция включает все возможности Standard Edition, расширяя их дополнительными, такими, как интеграция с Microsoft SQL Server и поддержка удалённой отладки.</p>
+                    <li>Visual Studio Tools for Office</li> 
+                        <p>Visual Studio Tools for Office включает SDK и расширение для Visual Studio, которое содержит утилиты для разработки под платформу Microsoft Office. Начиная с Visual Studio 2008 включено в версии Professional и выше.</p>
+                    <li>Visual Studio Team System</li> 
+                        <p>Предоставляет набор инструментов для совместной разработки, подсчёта метрик и создания отчётов, в дополнение к возможностям Professional редакции. Имеются различные редакции VSTS, разделяемые по ролям, для которых продукт будет использоваться:</p>
+                        <p>Совмещённая функциональность всех четырёх редакций представлена в отдельном пакете Visual Studio Team Suite Edition. Функциональность Database Edition будет совмещена с Development Edition в будущей версии пакета — Visual Studio 2010.
+                            Помимо клиентских приложений, Team System также включает в себя Team Foundation Server.</p>
+                </ol>
+                <hr>
+                <p>Источник: <a href="https://ru.wikipedia.org/wiki/Microsoft_Visual_Studio#Редакции">https://ru.wikipedia.org/wiki/Microsoft_Visual_Studio#Редакции</a></p>
             </div>
-            <div class="arrows">
-                <a id="arrows_left" href="{% url 'mobileLearning:listOfCourse' %}">
-                    <img src="{% static 'images/course/arrow.png'%}" width="10%"/>
-                </a>
-                <a id="arrows_right" href="{% url 'mobileLearning:lessonTwo' %}">
-                    <img src="{% static 'images/course/arrow.png'%}" width="10%"/>
-                </a>
-            </div> -->
         </div>
     </div>
 {% endblock content %}

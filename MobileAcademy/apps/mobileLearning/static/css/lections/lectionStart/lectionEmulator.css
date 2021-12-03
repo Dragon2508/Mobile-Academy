@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     max-width: 950px;
     margin: 0 auto;
-
+    margin-bottom: 80px;
 }
 .course_title{
     position: relative;
@@ -89,6 +89,9 @@ h1, h2, h3, h4, h5, h6 {
     -o-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
+}
+.center{
+    text-align: center;
 }
 .course_image{
     border-radius: 10px;

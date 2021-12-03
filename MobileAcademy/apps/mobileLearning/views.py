@@ -75,9 +75,9 @@ def listOfLection(request):
 
 # mobileLearning/lections/lectionStart/
 def lectionEmulator(request):
-    return render(request, 'mobileLearning/lections/lectionStart/lectionCSharp.html')
-def lectionCSharp(request):
     return render(request, 'mobileLearning/lections/lectionStart/lectionEmulator.html')
+def lectionCSharp(request):
+    return render(request, 'mobileLearning/lections/lectionStart/lectionCSharp.html')
 def lectionVisual(request):
     return render(request, 'mobileLearning/lections/lectionStart/lectionVisual.html')
 def lectionXamarin(request):

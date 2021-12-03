@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     max-width: 950px;
     margin: 0 auto;
-
+    margin-bottom: 80px;
 }
 .course_title{
     position: relative;

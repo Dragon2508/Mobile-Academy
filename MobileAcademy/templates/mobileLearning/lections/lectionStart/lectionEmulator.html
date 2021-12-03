@@ -33,27 +33,36 @@
             <div class="course_inner">
                 <div class="course_title">
                     <p>
-                        Основы работы с эмулятором Android.
+                        Возможная ошибка эмулятора.
                     </p>
                 </div>
-                <!-- <p>Xamarin можно установить в рамках нового процесса установки Visual Studio 2019, выполнив следующие действия: </p>    
-                <p>1. Скачайте Visual Studio 2019 Community, Visual Studio Professional или Visual Studio Enterprise со страницы Visual Studio (https://visualstudio.microsoft.com/ru/downloads). </p>
-                <p>2. Дважды щелкните скачанный пакет, чтобы начать установку</p>
-                <p>3. На экране установки выберите рабочую нагрузку Разработка мобильных приложений на платформе .NET: </p>
-                <img class="course_image" src="{% static 'images/course/lesson_1/Screenshot_1.png'%}" width="100%"/>
-                <p>4. Если вы готовы начать установку Visual Studio 2019, нажмите кнопку Установить в правом нижнем углу: </p>
-                <img class="course_image" src="{% static 'images/course/lesson_1/Screenshot_2.png'%}" width="100%"/>
-                <p>5.После установки Visual Studio 2019 нажмите кнопку Запустить, чтобы запустить Visual Studio: </p>
-                <img class="course_image" src="{% static 'images/course/lesson_1/Screenshot_3.png'%}" width="100%"/>
+                <p>Эмулятор Visual Studio для Android — это классическое приложение для эмуляции устройства Android.</p>    
+                <p>В случае возникновении данной ошибки  при запуске эмулятора </p>
+                <img class="course_image" src="{% static 'images/lection/эмулятор/1.png'%}" width="100%"/>
+                <p>Необходимо выполнить ряд следующих действий:</p>
+                <p>
+                    <ol>
+                        <li>Необходимо выполнить поиск данной папки (путь по умолчанию: С:\Users\User\.android) .</li>
+                        <img class="course_image" src="{% static 'images/lection/эмулятор/2.png'%}" width="100%"/>
+                        <li>Создать папку Android_SDK_HOME  в корневом каталоге диска С и скопировать в неё папку .android</li>
+                        <img class="course_image" src="{% static 'images/lection/эмулятор/3.png'%}" width="100%"/>
+                        <img class="course_image" src="{% static 'images/lection/эмулятор/4.png'%}" width="100%"/>
+                        <li>В папке C:\Android_SDK_HOME\.android\avd необходимо найти файл с расширением .ini и названием вашего эмулятора.</li>
+                        <img class="course_image" src="{% static 'images/lection/эмулятор/5.png'%}" width="100%"/>
+                        <li>Необходимо открыть файл при помощи блокнота и изменить путь, как показано на рисунке ниже.</li>
+                        <img class="course_image" src="{% static 'images/lection/эмулятор/6.png'%}" width="100%"/>
+                        <li>Открыть панель управления, в поиске набрать «переменные» и кликнуть на пункт изменение системных переменных среды. Далее необходимо кликнуть на выделенную кнопку и создать переменные, как показано на рисунке ниже</li>
+                        <img class="course_image " src="{% static 'images/lection/эмулятор/7.png'%}" width="100%"/>
+                        <div class="center">
+                            <img class="course_image" src="{% static 'images/lection/эмулятор/8.png'%}" width="50%"/>
+                        </div>
+                        <div class="center">
+                            <img class="course_image" src="{% static 'images/lection/эмулятор/9.png'%}" width="50%"/>
+                        </div>
+                        <li>На этом данная ошибка должна исчезнуть.</li>
+                    </ol>
+                </p>
             </div>
-            <div class="arrows">
-                <a id="arrows_left" href="{% url 'mobileLearning:listOfCourse' %}">
-                    <img src="{% static 'images/course/arrow.png'%}" width="10%"/>
-                </a>
-                <a id="arrows_right" href="{% url 'mobileLearning:lessonTwo' %}">
-                    <img src="{% static 'images/course/arrow.png'%}" width="10%"/>
-                </a>
-            </div> -->
         </div>
     </div>
 {% endblock content %}
