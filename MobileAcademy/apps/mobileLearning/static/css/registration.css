@@ -18,6 +18,51 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(#251b71,#10064e);
     background-size: cover;
 }
+
+/* Header */
+.header{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+.header__inner{
+    margin-top: 20px;
+}
+.nav__link{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+.header__logo{
+    text-align: center;
+}
+.logo{
+    width: 160px;
+}
+.image__icon{
+    margin-right: 5px;
+}
+.navigation{
+    text-align: left;
+    width: 300px;
+}
+.nav__link_auth{
+    text-align: right;
+    width: 300px;
+}
+.profile{
+    text-align: right;
+    width: 300px;
+   }
+.name_profile{
+    color: white;
+    text-decoration: none;
+}
+
+/* Content */
 .wrapper{ 
     width: 70%;
     background: linear-gradient(to right,#453b83,#33277a);

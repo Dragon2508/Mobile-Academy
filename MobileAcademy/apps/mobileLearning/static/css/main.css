@@ -66,10 +66,10 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     margin-top: 20px;
 }
+
 .nav__link{
     color: white;
     text-decoration: none;
-    margin-left: 20px;
     margin-right: 20px;
 }
 .logo{
@@ -78,10 +78,22 @@ h1, h2, h3, h4, h5, h6 {
 .image__icon{
     margin-right: 5px;
 }
-/* .name_profile{
+.navigation{
+    text-align: left;
+    width: 300px;
+}
+.nav__link_auth{
+    text-align: right;
+    width: 300px;
+}
+.profile{
+    text-align: right;
+    width: 300px;
+   }
+.name_profile{
     color: white;
     text-decoration: none;
-} */
+}
 
 /* Button */
 .btn {

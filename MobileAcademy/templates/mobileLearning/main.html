@@ -18,7 +18,9 @@
                         Лекции
                     </a>
                 </div>
-                <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
+                <a href="{% url 'mobileLearning:main' %}" >
+                    <img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo">
+                </a>
                 {% if request.user.is_authenticated %}
                     <div class="profile">
                         <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
