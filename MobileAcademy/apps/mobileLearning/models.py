@@ -11,6 +11,7 @@ class Profile(models.Model):
     phone = models.CharField('Телефон', blank=True, default='',  max_length = 12)
     city = models.CharField('Город', blank=True, default='',  max_length = 150)
     region = models.CharField('Область', blank=True, default='',  max_length = 150)
+    images = models.ImageField('Фото', upload_to ='media/', null = True)
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):

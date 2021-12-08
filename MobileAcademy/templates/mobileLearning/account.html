@@ -21,14 +21,19 @@
                 </div>
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
-                    <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
+                    {% comment %} <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20"> {% endcomment %}
+                    {% if imageUser.height > imageUser.width %}
+                        <div class="image__icon"  style = "width: 50px; height: 50px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 50px;"></div>
+                    {% else %}
+                        <div class="image__icon"  style = "width: 50px; height: 50px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 50px;"></div>
+                    {% endif %}
                     <a class="name_profile" href="#">{{request.user}}</a>
                 </div>
             </div>
         </div>
     </header>
     <div class="account">
-        <form action = "{% url 'mobileLearning:account' %}" method = POST>
+        <form action = "{% url 'mobileLearning:account' %}" method = POST enctype="multipart/form-data">
         {% csrf_token %}
             <div class="content">
                 <div class="img_cancel">
@@ -37,12 +42,22 @@
                 <div class="conteiner_inner">
                     <div class="inner_photo">
                         <div class="photo_profile">
-                            <img src="{% static 'images/photo.svg'%}" alt="Photo" width="260">
+                            {% if imageUser %}
+                                {% if imageUser.height > imageUser.width %}
+                                    <div style = "width: 200px; height: 200px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 200px;"></div>
+                                {% else %}
+                                    <div style = "width: 200px; height: 200px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 200px;"></div>
+                                {%endif%}
+                                {% comment %} <img src="{{imageUser.url}}" alt="Photo" width="260" style ="border-radius: 100px;"> {% endcomment %}
+                            {% else %}
+                                <img src="{% static 'images/photo.svg'%}" alt="Photo" width="260">
+                            {% endif %}
                         </div>
-                        <button class="btn_download" name="btnDownload">
+                        <input type="file" name="image">
+                        {% comment %} <button class="btn_download" name="btnDownload">
                             <img src="{% static 'images/btn_camera.svg'%}" alt="Camera" width="20">
                             <p id="btn_download_text">ЗАГРУЗИТЬ ФОТО</p>
-                        </button>
+                        </button> {% endcomment %}
                         <button class="btn_delete" name="btnDelete">
                             <p>УДАЛИТЬ</p>
                         </button>
