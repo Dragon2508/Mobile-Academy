@@ -14,18 +14,21 @@
                         <img class="image__icon" src="{% static 'images/Course.svg'%}" alt="Курсы" width="15">
                         Курсы
                     </a>
-                    <a class="nav__link" href="#">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfLection' %}">
                         <img class="image__icon" src="{% static 'images/Lection.svg'%}" alt="Лекции" width="15">
                         Лекции
                     </a>
                 </div>
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
-                    {% comment %} <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20"> {% endcomment %}
-                    {% if imageUser.height > imageUser.width %}
-                        <div class="image__icon"  style = "width: 50px; height: 50px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 50px;"></div>
+                    {% if imageUser and imageUser != 'None' %}
+                        {% if imageUser.height > imageUser.width %}
+                            <div class="image__icon"  style = "width: 50px; height: 50px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 50px;"></div>
+                        {% else %}
+                            <div class="image__icon"  style = "width: 50px; height: 50px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 50px;"></div>
+                        {% endif %}
                     {% else %}
-                        <div class="image__icon"  style = "width: 50px; height: 50px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 50px;"></div>
+                            <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
                     {% endif %}
                     <a class="name_profile" href="#">{{request.user}}</a>
                 </div>
@@ -36,13 +39,15 @@
         <form action = "{% url 'mobileLearning:account' %}" method = POST enctype="multipart/form-data">
         {% csrf_token %}
             <div class="content">
-                <div class="img_cancel">
-                    <a href="#"><img src="{% static 'images/cancel.svg'%}" alt="cancel" width="15"></a>
-                </div>
+                <!-- <div class="img_cancel">
+                    <a href="#">
+                        <img src="{% static 'images/cancel.svg'%}" alt="cancel" width="15">
+                    </a>
+                </div> -->
                 <div class="conteiner_inner">
                     <div class="inner_photo">
                         <div class="photo_profile">
-                            {% if imageUser and imageUser != 'None'  %}
+                            {% if imageUser and imageUser != 'None' %}
                                 {% if imageUser.height > imageUser.width %}
                                     <div style = "width: 200px; height: 200px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 200px;"></div>
                                 {% else %}
@@ -53,11 +58,26 @@
                                 <img src="{% static 'images/photo.svg'%}" alt="Photo" width="260">
                             {% endif %}
                         </div>
-                        <input type="file" name="image">
-                        {% comment %} <button class="btn_download" name="btnDownload">
-                            <img src="{% static 'images/btn_camera.svg'%}" alt="Camera" width="20">
-                            <p id="btn_download_text">ЗАГРУЗИТЬ ФОТО</p>
-                        </button> {% endcomment %}
+                        <div class="btn_download">
+                            <label for="myfile" class="chous" id="lbl_btn">
+                                <div class="downImg">
+                                    <img id="btn_download_img"src="{% static 'images/btn_camera.svg'%}" alt="Camera" width="20">
+                                    Загрузить Фото
+                                </div>
+                            </label>
+                            <input type="file" class="my" id="myfile" name="myfile" accept=".jpeg,.jpg,.png,.bmp" multiple="multiple" />
+                            <script>
+                                document.getElementById('myfile').addEventListener('change', wishFunction, false);
+                                function wishFunction(evt) {
+                                    var files = evt.target.files; 
+                                    f= files[0];
+                                    if (f==undefined) {
+                                    }
+                                    else
+                                        document.getElementById("lbl_btn").innerHTML = "Фото загружено";
+                                    }
+                            </script>
+                        </div>
                         <button class="btn_delete" name="btnDelete">
                             <p>УДАЛИТЬ</p>
                         </button>

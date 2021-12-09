@@ -36,8 +36,17 @@ body{
 .image__icon{
     margin-right: 5px;
 }
+.navigation{
+    text-align: left;
+    width: 250px;
+}
+.nav__link_auth{
+    text-align: right;
+    width: 250px;
+}
 .profile{
-    margin-right: 40px;
+    text-align: right;
+    width: 250px;
 }
 .name_profile{
     color: white;
@@ -51,13 +60,13 @@ body{
 }
 .content{
     width: 90%;
-    height: 70vh;
+    height: 60vh;
     background-color: #f7f7f5;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 80px;
+    padding-top: 70px;
     border-radius: 40px;
     border: 1px solid #7a858a;
-
 }
 .conteiner_inner{
     display: flex;
@@ -79,22 +88,37 @@ body{
 .inner__block p img{
     float: right;
 }
-.btn_download{
+.chous {
     width: 200px;
     height: 45px;
-    background: linear-gradient(#6e61cd,#35297f);
-    border: none;
-    color: white;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 0.18s ease-in-out;
+    background: linear-gradient(#6e61cd,#35297f);
 }
-#btn_download_text{
-    display: inline;
-    font-size: 12px;
-    padding-top: 2px;
-    padding-left: 10px;
+.downImg{
+    padding: 7px;
+}
+.chous:hover {
+    color: #00fbef;
+    background: linear-gradient(#554c9c,#3f3390);
+}
+    
+.my {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+#btn_download_img{
+    position: relative;
+    top: 3px;
 }
 .btn_delete{
     width: 150px;
@@ -105,6 +129,12 @@ body{
     color: #494441;
     margin: 0 auto;
     margin-top: 30px;
+    cursor: pointer;
+}
+.btn_delete:hover {
+    color: #00b6ad;
+    border:1px solid #00b6ad;
+    /* background: linear-gradient(#a0a0a0,#616161); */
 }
 .img_cancel{
     text-align: right;
@@ -144,4 +174,9 @@ input:focus{
     color: white;
     border-radius: 10px;
     box-shadow: 0px 3px 2px 0px #24186e;
+    cursor: pointer;
+}
+.btn_save:hover {
+    color: #00fbef;
+    background: linear-gradient(#554c9c,#3f3390);
 }

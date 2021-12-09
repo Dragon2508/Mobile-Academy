@@ -29,6 +29,11 @@ def account(request):
     return render(request, 'mobileLearning/account.html',{'imageUser': imageUser})
 def index(request):
     return render(request, 'mobileLearning/main.html')
+
+def loginOut(request):
+    auth.logout(request) 
+    return HttpResponseRedirect(reverse('mobileLearning:main'))
+
 def login(request):
     if request.POST:
         userName = request.POST['username']
@@ -36,7 +41,7 @@ def login(request):
         user = auth.authenticate(username=userName, password=psw)
         if user is not None:
             auth.login(request, user)
-            return render(request, 'mobileLearning/main.html')
+            return HttpResponseRedirect(reverse('mobileLearning:main'))
     return render(request, 'mobileLearning/login.html')
 def registration(request):
     form = CustomUserCreationForm()
@@ -51,7 +56,7 @@ def registration(request):
                 newIndex = (AccessCourse.objects.all().values_list('id',flat=True).last() + 1)
                 obj = AccessCourse(id = newIndex, course = Course.objects.get(id = 1), user = user, is_access = True, is_passed = False, test_status = 'не начат')
                 obj.save()
-                return render(request, 'mobileLearning/main.html')
+                return HttpResponseRedirect(reverse('mobileLearning:main'))
     context = {'form': form}
     return render(request, 'mobileLearning/registration.html', context)
 
@@ -88,7 +93,6 @@ def answersOnQuestions(request):
 
 # mobileLearning/lections/
 def listOfLection(request):
-    auth.logout(request)
     return render(request, 'mobileLearning/lections/listOfLection.html')
 
 # mobileLearning/lections/lectionStart/

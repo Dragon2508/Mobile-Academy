@@ -46,9 +46,18 @@ h1, h2, h3, h4, h5, h6 {
 .image__icon{
     margin-right: 5px;
 }
-.profile{
-    margin-right: 40px;
+.navigation{
+    text-align: left;
+    width: 250px;
 }
+.nav__link_auth{
+    text-align: right;
+    width: 250px;
+}
+.profile{
+    text-align: right;
+    width: 250px;
+   }
 .name_profile{
     color: white;
     text-decoration: none;

@@ -18,11 +18,26 @@
                         Лекции
                     </a>
                 </div>
-                <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
+                <a href="{% url 'mobileLearning:main' %}" >
+                    <img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo">
+                </a>
                 {% if request.user.is_authenticated %}
-                    <div class="profile">
+                    <!-- <div class="profile">
                         <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
                         <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                    </div> -->
+                    <div class="profile">
+                        <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
+                        <a class="name_profile" href="#">{{request.user}}</a>
+                        <div class="profile-content">
+                            <a href="{% url 'mobileLearning:account' %}">Личный кабинет</a>
+                            <a href="{% url 'mobileLearning:loginOut' %}">Выйти</a>
+                        </div>
                     </div>
                 {% else %} 
                     <div class="nav__link_auth">

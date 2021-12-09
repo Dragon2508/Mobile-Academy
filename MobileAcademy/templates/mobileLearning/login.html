@@ -6,6 +6,19 @@
     {% block title %}Вход{% endblock title %}
 
 {% block content %}
+<!-- Заголовок   -->
+    <header class="header">
+        <div class="header__container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <a href="{% url 'mobileLearning:main' %}" >
+                        <img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <div class="conteiner">
         <div class="wrapper">
             <div class="wrapper__half_1">
