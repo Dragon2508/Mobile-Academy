@@ -56,11 +56,24 @@
                                 <img src="{% static 'images/photo.svg'%}" alt="Photo" width="260">
                             {% endif %}
                         </div>
-                        <input type="file" name="image">
-                        {% comment %} <button class="btn_download" name="btnDownload">
-                            <img src="{% static 'images/btn_camera.svg'%}" alt="Camera" width="20">
-                            <p id="btn_download_text">ЗАГРУЗИТЬ ФОТО</p>
-                        </button> {% endcomment %}
+                        <div class="btn_download">
+                            <label for="myfile" class="chous" id="lbl_btn">
+                                <img id="btn_download_img"src="assets/images/Account/btn_camera.svg" alt="Camera" width="20">
+                                Загрузить Фото
+                            </label>
+                            <input type="file" class="my" id="myfile" name="myfile" accept=".jpeg,.jpg,.png,.bmp" multiple="multiple" />
+                            <script>
+                                document.getElementById('myfile').addEventListener('change', wishFunction, false);
+                                function wishFunction(evt) {
+                                    var files = evt.target.files; 
+                                    f= files[0];
+                                    if (f==undefined) {
+                                    }
+                                    else
+                                        document.getElementById("lbl_btn").innerHTML = "Фото загружено";
+                                    }
+                            </script>
+                        </div>
                         <button class="btn_delete" name="btnDelete">
                             <p>УДАЛИТЬ</p>
                         </button>
