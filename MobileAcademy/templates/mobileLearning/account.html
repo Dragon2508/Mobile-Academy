@@ -39,9 +39,11 @@
         <form action = "{% url 'mobileLearning:account' %}" method = POST enctype="multipart/form-data">
         {% csrf_token %}
             <div class="content">
-                <div class="img_cancel">
-                    <a href="#"><img src="{% static 'images/cancel.svg'%}" alt="cancel" width="15"></a>
-                </div>
+                <!-- <div class="img_cancel">
+                    <a href="#">
+                        <img src="{% static 'images/cancel.svg'%}" alt="cancel" width="15">
+                    </a>
+                </div> -->
                 <div class="conteiner_inner">
                     <div class="inner_photo">
                         <div class="photo_profile">

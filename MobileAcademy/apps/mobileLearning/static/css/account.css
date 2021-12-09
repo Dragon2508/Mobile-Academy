@@ -60,10 +60,11 @@ body{
 }
 .content{
     width: 90%;
-    height: 70vh;
+    height: 60vh;
     background-color: #f7f7f5;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 80px;
+    padding-top: 70px;
     border-radius: 40px;
     border: 1px solid #7a858a;
 
