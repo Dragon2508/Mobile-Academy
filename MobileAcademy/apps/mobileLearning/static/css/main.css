@@ -50,6 +50,9 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 5px;
     line-height: 1;
 }
+a:hover{
+    color: #00cec3;
+}
 
 /* Header */
 .header{
@@ -78,22 +81,42 @@ h1, h2, h3, h4, h5, h6 {
 .image__icon{
     margin-right: 5px;
 }
-.navigation{
-    text-align: left;
-    width: 300px;
-}
-.nav__link_auth{
-    text-align: right;
-    width: 300px;
-}
-.profile{
-    text-align: right;
-    width: 300px;
-   }
 .name_profile{
     color: white;
     text-decoration: none;
 }
+.navigation{
+    text-align: left;
+    width: 250px;
+}
+.nav__link_auth{
+    text-align: right;
+    width: 250px;
+}
+.profile{
+    text-align: right;
+    width: 250px;
+    position: relative;
+}
+.profile-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.profile-content a {
+    text-align: right;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.profile-content a:hover {background-color: #ddd;}
+.profile:hover .profile-content {display: block;}
+
+
 
 /* Button */
 .btn {
@@ -112,8 +135,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: background .1s linear, color .1s linear;
 }
 .btn:hover {
-    box-shadow: inset 0 2px 10px 1px rgba(0,0,0,.3), inset 0 0 0 60px rgba(0,0,0,.3), 0 1px rgba(255,255,255,.08);
-    background-color: #ffffff;
+    background: linear-gradient(#554c9c,#3f3390);
 }
 
 /* Edication */
@@ -122,7 +144,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .education_inner{
     width: 100%;
-
     padding-top: 100px;
     padding-bottom: 100px;
 }
