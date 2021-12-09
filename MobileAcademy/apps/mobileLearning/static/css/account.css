@@ -67,7 +67,6 @@ body{
     padding-top: 70px;
     border-radius: 40px;
     border: 1px solid #7a858a;
-
 }
 .conteiner_inner{
     display: flex;
@@ -96,10 +95,17 @@ body{
     text-align: center;
     cursor: pointer;
     display: block;
-    font: 15px/45px Tahoma;
+    font-size: 14px;
     text-transform: uppercase;
     transition: all 0.18s ease-in-out;
     background: linear-gradient(#6e61cd,#35297f);
+}
+.downImg{
+    padding: 7px;
+}
+.chous:hover {
+    color: #00fbef;
+    background: linear-gradient(#554c9c,#3f3390);
 }
     
 .my {
@@ -123,6 +129,12 @@ body{
     color: #494441;
     margin: 0 auto;
     margin-top: 30px;
+    cursor: pointer;
+}
+.btn_delete:hover {
+    color: #00b6ad;
+    border:1px solid #00b6ad;
+    /* background: linear-gradient(#a0a0a0,#616161); */
 }
 .img_cancel{
     text-align: right;
@@ -162,4 +174,9 @@ input:focus{
     color: white;
     border-radius: 10px;
     box-shadow: 0px 3px 2px 0px #24186e;
+    cursor: pointer;
+}
+.btn_save:hover {
+    color: #00fbef;
+    background: linear-gradient(#554c9c,#3f3390);
 }
