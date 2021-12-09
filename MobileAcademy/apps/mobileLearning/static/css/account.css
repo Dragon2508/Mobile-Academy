@@ -79,22 +79,30 @@ body{
 .inner__block p img{
     float: right;
 }
-.btn_download{
+.chous {
     width: 200px;
     height: 45px;
-    background: linear-gradient(#6e61cd,#35297f);
-    border: none;
-    color: white;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    font: 15px/45px Tahoma;
+    text-transform: uppercase;
+    transition: all 0.18s ease-in-out;
+    background: linear-gradient(#6e61cd,#35297f);
 }
-#btn_download_text{
-    display: inline;
-    font-size: 12px;
-    padding-top: 2px;
-    padding-left: 10px;
+    
+.my {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+#btn_download_img{
+    position: relative;
+    top: 3px;
 }
 .btn_delete{
     width: 150px;
