@@ -5,6 +5,7 @@ from . import views
 app_name = 'mobileLearning'
 urlpatterns = [
     path('', views.index, name='main'),
+    path('loginOut', views.loginOut, name='loginOut'),
     path('login', views.login, name='login'),
     path('registration', views.registration, name='registration'),
     path('account', views.account, name='account'),

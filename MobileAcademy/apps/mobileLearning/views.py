@@ -28,6 +28,11 @@ def account(request):
     return render(request, 'mobileLearning/account.html',{'imageUser': imageUser})
 def index(request):
     return render(request, 'mobileLearning/main.html')
+
+def loginOut(request):
+    auth.logout(request) 
+    return HttpResponseRedirect(reverse('mobileLearning:main'))
+
 def login(request):
     if request.POST:
         userName = request.POST['username']
@@ -35,7 +40,7 @@ def login(request):
         user = auth.authenticate(username=userName, password=psw)
         if user is not None:
             auth.login(request, user)
-            return render(request, 'mobileLearning/main.html')
+            return HttpResponseRedirect(reverse('mobileLearning:main'))
     return render(request, 'mobileLearning/login.html')
 def registration(request):
     form = CustomUserCreationForm()
@@ -47,7 +52,7 @@ def registration(request):
             user = auth.authenticate(username = request.POST['username'], password = request.POST['password2'])
             if user is not None:
                 auth.login(request, user)
-                return render(request, 'mobileLearning/main.html')
+                return HttpResponseRedirect(reverse('mobileLearning:main'))
     context = {'form': form}
     return render(request, 'mobileLearning/registration.html', context)
 
@@ -73,7 +78,6 @@ def testing(request):
 
 # mobileLearning/lections/
 def listOfLection(request):
-    auth.logout(request)
     return render(request, 'mobileLearning/lections/listOfLection.html')
 
 # mobileLearning/lections/lectionStart/
