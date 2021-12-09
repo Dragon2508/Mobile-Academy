@@ -17,6 +17,7 @@ urlpatterns = [
     path('listOfCourse/lessonFive', views.lessonFive, name='lessonFive'),
     path('listOfCourse/Six', views.lessonSix, name='lessonSix'),
     path('listOfCourse/testing', views.testing, name='testing'),
+    path('listOfCourse/answersOnQuestions', views.answersOnQuestions, name='answersOnQuestions'),
     # Lections
     path('listOfLection', views.listOfLection, name='listOfLection'),
     path('listOfLection/lectionEmulator', views.lectionEmulator, name='lectionEmulator'),

@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms  import CustomUserCreationForm
+from .models import AccessCourse, Course
 
 # mobileLearning/
 def account(request):
@@ -47,6 +48,9 @@ def registration(request):
             user = auth.authenticate(username = request.POST['username'], password = request.POST['password2'])
             if user is not None:
                 auth.login(request, user)
+                newIndex = (AccessCourse.objects.all().values_list('id',flat=True).last() + 1)
+                obj = AccessCourse(id = newIndex, course = Course.objects.get(id = 1), user = user, is_access = True, is_passed = False, test_status = 'не начат')
+                obj.save()
                 return render(request, 'mobileLearning/main.html')
     context = {'form': form}
     return render(request, 'mobileLearning/registration.html', context)
@@ -69,7 +73,18 @@ def lessonFive(request):
 def lessonSix(request):
     return render(request, 'mobileLearning/courses/courseStart/lessonSix.html')
 def testing(request):
-    return render(request, 'mobileLearning/courses/courseStart/testing.html')
+    obj = AccessCourse.objects.get( user = request.user.id,  course = 1)
+    if request.POST:
+        post_data = request.POST
+        if 'btnYes' in post_data or 'btnNo' in post_data:
+            obj.test_status = 'начат'
+            obj.save()
+            return HttpResponseRedirect(reverse('mobileLearning:testing'))
+    return render(request, 'mobileLearning/courses/courseStart/testing.html',{'AccessCourse':obj})
+
+def answersOnQuestions(request):
+    if request.POST:
+        return HttpResponseRedirect(reverse('mobileLearning:testing'))
 
 # mobileLearning/lections/
 def listOfLection(request):

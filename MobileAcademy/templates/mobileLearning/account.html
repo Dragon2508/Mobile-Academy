@@ -42,7 +42,7 @@
                 <div class="conteiner_inner">
                     <div class="inner_photo">
                         <div class="photo_profile">
-                            {% if imageUser %}
+                            {% if imageUser and imageUser != 'None'  %}
                                 {% if imageUser.height > imageUser.width %}
                                     <div style = "width: 200px; height: 200px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 200px;"></div>
                                 {% else %}

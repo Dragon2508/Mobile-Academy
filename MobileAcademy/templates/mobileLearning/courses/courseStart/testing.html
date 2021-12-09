@@ -45,111 +45,122 @@
                         Тестирование
                     </p>
                 </div>   
-                <p>А теперь для заврешения курса необходимо ответить на простенькие вопросы. Готовы?</p>
-                <div class="block__btn">
-                    <button class="btn_answer">Да</button>
-                    <button class="btn_answer">Нет</button>
-                </div>
-                <p>1. На каком языке программирования прописывается логика приложения на Xamarin:</p>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>a. C++</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>b. C#</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>c. HTML</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>d. JavaScript</span>
-                </div>
-                <p>2. Для каких операционных систем можно разрабатывать приложения на Xamarin:</p>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>a. Android</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>b. Android, IOS</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>c. Windows</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>d. Все перечисленные</span>
-                </div>
-                <p>3. С помощью какого кода можно создать кнопку с текстом “Кнопка” в XAML:</p>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>a. &ltButton Text="Кнопка"/&gt</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>&ltLabel Text="Кнопка"/&gt</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>&ltBoxView Text="Кнопка"/&gt</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>&ltImageButton Text="Кнопка"/&gt</span>
-                </div>
-                <p>4. С помощью какой горячей клавиши можно запустить приложение:</p>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>a. F7</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>b. F5</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>c. CTRL + S</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>d. CTRL + ALT + DELETE</span>
-                </div>
-                <p>5. Как задать имя элемента в XAML:</p>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>a. Name</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>b. x::Name</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>c. x:Name</span>
-                </div>
-                <div class="select__radio">
-                    <input type="radio">
-                    <span>d. c:Name</span>
-                </div>
-                <div class="block__btn">
-                    <button class="btn_answer">Подвести итоги</button>
-                </div>
-                <div class="finish__course">
-                    <img src="{% static 'images/course/testing/smile.png'%}" width="40%" alt=""/>
-                    <div class="finish__course--right">
-                        <p><b>Поздравляю!</b></p>
-                        <p>Вы прошли курс ознакомления с Xamarin. </p>
-                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
-                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
-                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
-                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
-                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="">
+                {%if AccessCourse.test_status == 'не начат' %}
+                    <p>А теперь для заврешения курса необходимо ответить на простенькие вопросы. Готовы?</p>
+                    <div class="block__btn">
+                        <form action = "{% url 'mobileLearning:testing' %}" method = POST>
+                            {% csrf_token %}
+                            <button class="btn_answer" name="btnYes">Да</button>
+                            <button class="btn_answer" name="btnNo">Нет</button>
+                        </form>
                     </div>
-                </div>
+                {%endif%}
+                {%if AccessCourse.test_status == 'начат' %}
+                    <form action = "{% url 'mobileLearning:answersOnQuestions' %}" method = POST>
+                        {% csrf_token %}
+                        <p>1. На каком языке программирования прописывается логика приложения на Xamarin:</p>
+                        <div class="select__radio">
+                            <input type="radio" name="firstQuestion" value="1">
+                            <span>a. C++</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="firstQuestion" value="2">
+                            <span>b. C#</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="firstQuestion" value="3">
+                            <span>c. HTML</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="firstQuestion" value="4">
+                            <span>d. JavaScript</span>
+                        </div>
+                        <p>2. Для каких операционных систем можно разрабатывать приложения на Xamarin:</p>
+                        <div class="select__radio">
+                            <input type="radio" name="secondQuestion" value="1">
+                            <span>a. Android</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="secondQuestion" value="2">
+                            <span>b. Android, IOS</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="secondQuestion" value="3">
+                            <span>c. Windows</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="secondQuestion" value="4">
+                            <span>d. Все перечисленные</span>
+                        </div>
+                        <p>3. С помощью какого кода можно создать кнопку с текстом “Кнопка” в XAML:</p>
+                        <div class="select__radio">
+                            <input type="radio" name="thirdQuestion" value="1">
+                            <span>a. &ltButton Text="Кнопка"/&gt</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="thirdQuestion" value="2">
+                            <span>&ltLabel Text="Кнопка"/&gt</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="thirdQuestion" value="3">
+                            <span>&ltBoxView Text="Кнопка"/&gt</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="thirdQuestion" value="4">
+                            <span>&ltImageButton Text="Кнопка"/&gt</span>
+                        </div>
+                        <p>4. С помощью какой горячей клавиши можно запустить приложение:</p>
+                        <div class="select__radio">
+                            <input type="radio" name="fourthQuestion" value="1">
+                            <span>a. F7</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="fourthQuestion" value="2">
+                            <span>b. F5</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="fourthQuestion" value="3">
+                            <span>c. CTRL + S</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio"  name="fourthQuestion" value="4">
+                            <span>d. CTRL + ALT + DELETE</span>
+                        </div>
+                        <p>5. Как задать имя элемента в XAML:</p>
+                        <div class="select__radio">
+                            <input type="radio" name="fifthQuestion" value="1">
+                            <span>a. Name</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="fifthQuestion" value="2">
+                            <span>b. x::Name</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="fifthQuestion" value="3">
+                            <span>c. x:Name</span>
+                        </div>
+                        <div class="select__radio">
+                            <input type="radio" name="fifthQuestion" value="4">
+                            <span>d. c:Name</span>
+                        </div>
+                        <div class="block__btn">
+                            <button class="btn_answer">Подвести итоги</button>
+                        </div>
+                    </form>
+                {%else%}
+                    <div class="finish__course">
+                        <img src="{% static 'images/course/testing/smile.png'%}" width="40%" alt=""/>
+                        <div class="finish__course--right">
+                            <p><b>Поздравляю!</b></p>
+                            <p>Вы прошли курс ознакомления с Xamarin. </p>
+                            <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
+                            <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
+                            <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
+                            <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="">
+                            <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="">
+                        </div>
+                    </div>
+                {%endif%}
             </div>
         </div>
     </div>

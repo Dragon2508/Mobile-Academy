@@ -11,7 +11,7 @@ class Profile(models.Model):
     phone = models.CharField('Телефон', blank=True, default='',  max_length = 12)
     city = models.CharField('Город', blank=True, default='',  max_length = 150)
     region = models.CharField('Область', blank=True, default='',  max_length = 150)
-    images = models.ImageField('Фото', upload_to ='media/', null = True)
+    images = models.ImageField('Фото', upload_to ='media/', default = 'None')
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
@@ -30,6 +30,8 @@ class AccessCourse(models.Model):
     user = models.ForeignKey(User, on_delete= models.CASCADE)
     is_access = models.BooleanField('Есть ли доступ к курсу')
     is_passed = models.BooleanField('Пройден ли курс')
+    test_status = models.CharField('Статус теста', default='не начат', max_length=20)
+
 
 
 
