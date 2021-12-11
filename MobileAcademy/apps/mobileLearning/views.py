@@ -21,7 +21,10 @@ def account(request):
             request.user.profile.phone = request.POST['phone']
             request.user.profile.city = request.POST['city']
             request.user.profile.region = request.POST['region']
-            request.user.profile.images = request.FILES['image']
+            try:
+                request.user.profile.images = request.FILES['myfile']
+            except:
+                print('Не было фото')
             request.user.save()
             return HttpResponseRedirect(reverse('mobileLearning:account'))
     #print(imageUser.height)
