@@ -3,7 +3,6 @@ body {
     font-family: 'Roboto',Arial,sans-serif;
 
     line-height: 1.6;
-    color: rgb(0, 0, 0);
 }
 
 *,
@@ -13,6 +12,13 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    color: #00cec3;
 }
 
 
@@ -37,7 +43,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .nav__link{
     color: white;
-    text-decoration: none;
     margin-right: 20px;
 }
 .logo{
@@ -60,7 +65,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .name_profile{
     color: white;
-    text-decoration: none;
 }
 
 /* Courses */
@@ -109,7 +113,7 @@ input{
 }
 .listCourses_inner_element:hover{
     color: #ffffff;
-    background: #3c3be8;
+    background: #1a116e;
 }
 .listCourses_inner_element{
     padding: 5px;
@@ -154,6 +158,10 @@ input{
     background: #f7f7f5;
     border-radius: 20px;
 }
+.block_content:hover{
+    outline: 2px solid rgb(16, 211, 201);
+    color: rgb(16, 211, 201) !important;
+}
 .block_content_title{
     width: 60%;
     padding-top: 30px;
@@ -172,6 +180,23 @@ input{
     padding-bottom: 20px;
     font-size: 12px;
 }
+.profile-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.profile-content a {
+    text-align: right;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.profile-content a:hover {background-color: #ddd;color: rgb(29, 187, 179);}
+.profile:hover .profile-content {display: block;}
 
 /* Footer */
 .footer{

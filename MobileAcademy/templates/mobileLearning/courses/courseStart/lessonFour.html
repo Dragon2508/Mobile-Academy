@@ -22,7 +22,11 @@
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
                     <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
+                    <span class="name_profile" href="#">{{request.user}}</span>
+                    <div class="profile-content">
+                        <a href="{% url 'mobileLearning:account' %}">Личный кабинет</a>
+                        <a href="{% url 'mobileLearning:loginOut' %}">Выйти</a>
+                    </div>
                 </div>
                 <!-- <div class="nav__link_auth">
                     <a class="nav__link" href="#" >
@@ -42,7 +46,7 @@
             <div class="course_inner">
                 <div class="course_title">
                     <p>
-                        Настройка приложения
+                        Структура приложения
                     </p>
                 </div>   
                 <p>При создании проекта в него
@@ -63,11 +67,11 @@
                 </p>
             </div>
             <div class="arrows">
-                <a id="arrows_left" href="{% url 'mobileLearning:lessonThree' %}">
-                    <img src="{% static 'images/course/arrow.png'%}" width="5%"/>
+                <a class="arrows_left" href="{% url 'mobileLearning:lessonThree' %}">
+                    <img src="{% static 'images/course/arrow_left.svg'%}" width="20%"/>
                 </a>
-                 <a id="arrows_right" href="{% url 'mobileLearning:lessonFive' %}">
-                    <img src="{% static 'images/course/arrow.png'%}" width="5%"/>
+                <a class="arrows_right" href="{% url 'mobileLearning:lessonFive' %}">
+                    <img src="{% static 'images/course/arrow_right.svg'%}" width="20%"/>
                 </a>
             </div>
         </div>

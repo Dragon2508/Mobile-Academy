@@ -22,7 +22,11 @@
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
                     <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
+                    <span class="name_profile" href="#">{{request.user}}</span>
+                    <div class="profile-content">
+                        <a href="{% url 'mobileLearning:account' %}">Личный кабинет</a>
+                        <a href="{% url 'mobileLearning:loginOut' %}">Выйти</a>
+                    </div>
                 </div>
                 <!-- <div class="nav__link_auth">
                     <a class="nav__link" href="#" >
@@ -41,30 +45,34 @@
         <div class="container">
             <div class="course_inner">
                 <div class="course_title">
-                    <p>Создание первого приложения</p>
+                    <p>Разработка игры</p>
                 </div>   
                 <p>Для демонстраци возможностей Xamarin, создадим простое приложение  в котором будет находится круглая кнопка с номером, 
                     отображающим количество нажатий на неё. Для этого вставьте следующий код в файл MainPage.xaml:</p>
-                <p class="course_code"> <code>
+                <div class="course_code">
                     &lt?xml version="1.0" encoding="utf-8" ?&gt
                     <br>
-                    &ltContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                    <br>
-                                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                                 <br>
-                                 x:Class="App3.MainPage"&gt
-                                 <br>
-                        &ltStackLayout&gt
+                    <div style=" margin-left: 30px;">
+                        &ltContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                         <br>
-                            &ltButton x:Name="MyButton" WidthRequest="80" HeightRequest="80" HorizontalOptions="Center" Text="0" BorderRadius="40"  Clicked="Button_Clicked" /&gt
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        <br>
+                        x:Class="App3.MainPage"&gt
+                        <br>
+                        <div style=" margin-left: 30px;">
+                            &ltStackLayout&gt
                             <br>
-                        &lt/StackLayout&gt
-                        <br>
-                    &lt/ContentPage&gt
-                </code></p>
+                            <div style=" margin-left: 30px;">
+                                &ltButton x:Name="MyButton" WidthRequest="80" HeightRequest="80" HorizontalOptions="Center" Text="0" BorderRadius="40"  Clicked="Button_Clicked" /&gt
+                            </div>
+                            &lt/StackLayout&gt
+                        </div>
+                        &lt/ContentPage&gt
+                    </div>
+                </div>
                 <p>При нажатии на кнопку, будет случайным образом меняться её местоположение и цвет.Для реализации данного приложения 
                     скопируйте ниже представленный код в MainPage.xaml.cs:</p>
-                <p class="course_code"> <code>
+                <div class="course_code">
                     using System;
                     <br>
                     using Xamarin.Forms;
@@ -72,17 +80,18 @@
                     namespace App3
                     <br>
                     {
-                        <br>
+                    <div style=" margin-left: 30px;">
                         public partial class MainPage : ContentPage
                         <br>
                         {
-                            <br>
+                        <div style=" margin-left: 30px;">
                             public MainPage()
                             <br>
                             {
-                                <br>
-                                InitializeComponent();
-                                <br>
+                                <div style=" margin-left: 30px;">
+                                    InitializeComponent();
+                                    <br>
+                                </div>
                             }
                             <br>
                             Random rnd = new Random(); // Объявление экземпляра класса Random
@@ -92,7 +101,7 @@
                             void Button_Clicked(object sender, System.EventArgs e)  // Инициализация метода нажатия на кнопку
                             <br>
                             {
-                                <br>
+                            <div style=" margin-left: 30px;">
                                 count++;                                             // количество кликов +1
                                 <br>
                                 MyButton.TranslationX = rnd.Next(-150, 150);         // Рандомное выставление кнопки по координате X
@@ -113,35 +122,40 @@
                                 <br>                               
                                 // Если яркость больше или равна 0.45, то меняем цвет текста кнопки на чёрный, иначе на белый
                                 {
-                                    <br>
-                                    MyButton.TextColor = new Color(0, 0, 0);
-                                    <br>
+                                    <div style=" margin-left: 30px;">
+                                        MyButton.TextColor = new Color(0, 0, 0);
+                                        <br>
+                                    </div>
                                 }
                                 <br>
                                 else
                                 <br>
                                 {
-                                    <br>
-                                    MyButton.TextColor = new Color(1, 1, 1);
-                                    <br>
+                                    <div style=" margin-left: 30px;">
+                                        MyButton.TextColor = new Color(1, 1, 1);
+                                        <br>
+                                    </div>
                                 }
                                 <br>
+                            </div>
                             }
                             <br>
+                        </div>
                         }
                         <br>
+                    </div>
                     }
-                </code></p>
+                </div>
                 <p>3.Для запуска приложения нажмите на кнопку Отладка</p>
                 <p>Готовое приложение будет выглядеть следующим образом:</p>
                 <img class="course_image" src="{% static 'images/course/lesson_6/Screenshot_1.png'%}" width="40%" alt=""/>
             </div>
             <div class="arrows">
-                <a id="arrows_left" href="{% url 'mobileLearning:lessonFive' %}">
-                    <img src="{% static 'images/course/arrow.png'%}" width="5%"/>
+                <a class="arrows_left" href="{% url 'mobileLearning:lessonFive' %}">
+                    <img src="{% static 'images/course/arrow_left.svg'%}" width="20%"/>
                 </a>
-                <a id="arrows_right" href="{% url 'mobileLearning:testing' %}">
-                    <img src="{% static 'images/course/arrow.png'%}" width="5%"/>
+                <a class="arrows_right" href="{% url 'mobileLearning:testing' %}">
+                    <img src="{% static 'images/course/arrow_right.svg'%}" width="20%"/>
                 </a>
             </div>
         </div>

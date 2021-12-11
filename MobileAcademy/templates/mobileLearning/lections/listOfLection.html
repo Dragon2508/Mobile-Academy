@@ -26,7 +26,11 @@
                 {% if request.user.is_authenticated %}
                     <div class="profile">
                         <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                        <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
+                        <span class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</span>
+                        <div class="profile-content">
+                            <a href="{% url 'mobileLearning:account' %}">Личный кабинет</a>
+                            <a href="{% url 'mobileLearning:loginOut' %}">Выйти</a>
+                        </div>
                     </div>
                 {% else %}
                     <div class="nav__link_auth">
@@ -64,22 +68,6 @@
                         <div class="listCourses_inner_element">
                             <p class="navAll">IOS</p>
                         </div>
-                        <div class="lineForSearch"></div>
-                        <div class="titleLevel">
-                            <p>Уровень сложности</p>
-                        </div>
-                        <div class="typeLevel">
-                            <input type="radio">
-                            <span>Любой</span>
-                        </div>
-                        <div class="typeLevel">
-                            <input type="radio">
-                            <span>Для новичков</span>
-                        </div>
-                        <div class="typeLevel">
-                            <input type="radio">
-                            <span>Для специалистов</span>
-                        </div>
                     </div>
                     <div class="listCourses_inner_content">
                         <div class="listCourses_inner_content_title">
@@ -90,39 +78,39 @@
                             <div class="block_content">
                                 <a href="{% url 'mobileLearning:lectionVisual' %}">
                                     <div class="block_content_title">
-                                        Тут будет лекция про Visual Studio
+                                        Что такое Microsoft Visual Studio?
                                     </div>
                                     <div class="block_content_image">
-                                        <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                        <img src="{% static 'images/visual_icon.png'%}" height="55px"/>
                                     </div>
                                     <div class="block_content_time">
-                                        12 мин
+                                        7 мин
                                     </div>
                                 </a>
                             </div>
                             <div class="block_content">
                                 <a href="{% url 'mobileLearning:lectionCSharp' %}">
                                     <div class="block_content_title">
-                                        Тут будет лекция про C#
+                                        Основы C#. Создание первого проекта.
                                     </div>
                                     <div class="block_content_image">
-                                        <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                        <img src="{% static 'images/CSharp_icon.png'%}" height="80px"/>
                                     </div>
                                     <div class="block_content_time">
-                                        10 мин
+                                        16 мин
                                     </div>
                                 </a>
                             </div>
                             <div class="block_content">
                                 <a href="{% url 'mobileLearning:lectionEmulator' %}">
                                     <div class="block_content_title">
-                                        Тут будет лекция про эмулятор Android
+                                        Частая ошибка эмулятора Android.
                                     </div>
                                     <div class="block_content_image">
-                                        <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                        <img src="{% static 'images/android_icon.png'%}" height="52px"/>
                                     </div>
                                     <div class="block_content_time">
-                                        7 мин
+                                        5 мин
                                     </div>
                                 </a>
                             </div>
@@ -131,10 +119,10 @@
                             <div class="block_content">
                                 <a href="{% url 'mobileLearning:lectionXamarin' %}">
                                     <div class="block_content_title">
-                                        Тут будет лекция про Xamarin
+                                        Первые шаги с Xamarin.
                                     </div>
                                     <div class="block_content_image">
-                                        <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
+                                        <img src="{% static 'images/xamarin_icon.png'%}" height="80px"/>
                                     </div>
                                     <div class="block_content_time">
                                         15 мин

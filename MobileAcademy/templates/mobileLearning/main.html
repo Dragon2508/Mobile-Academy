@@ -33,7 +33,7 @@
                     </div> -->
                     <div class="profile">
                         <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                        <a class="name_profile" href="#">{{request.user}}</a>
+                        <span class="name_profile" href="#">{{request.user}}</span>
                         <div class="profile-content">
                             <a href="{% url 'mobileLearning:account' %}">Личный кабинет</a>
                             <a href="{% url 'mobileLearning:loginOut' %}">Выйти</a>
@@ -226,18 +226,18 @@
                     <img  src="{% static 'images/Logo.svg' %}" alt="logo" width="200"/>
                 </div>
                 <div class="footer_left_social">
-                    <span class="footer_left_social_img">
-                        <img src="{% static 'images/vkGray.svg' %}" alt="vk" width="25px"/>
-                    </span>
-                    <span class="footer_left_social_img">
-                        <img src="{% static 'images/telegramGray.svg' %}" alt="telegram" width="25px"/>
-                    </span>
-                    <span class="footer_left_social_img">
-                        <img src="{% static 'images/twiterGray.svg' %}" alt="twiter" width="25px"/>
-                    </span>
-                    <span class="footer_left_social_img">
-                        <img src="{% static 'images/whatsUpGray.svg' %}" alt="whatsUp" width="25px"/>
-                    </span>
+                    <a href="#" class="footer_left_social_img">
+                        <img class="footer__vk-img" src="{% static 'images/vkGray.svg' %}" alt="vk" width="25px"/>
+                    </a>
+                    <a href="#"  class="footer_left_social_img">
+                        <img class="footer__telegram-img" src="{% static 'images/telegramGray.svg' %}" alt="telegram" width="25px"/>
+                    </a>
+                    <a href="#"  class="footer_left_social_img">
+                        <img class="footer__twiter-img" src="{% static 'images/twiterGray.svg' %}" alt="twiter" width="25px"/>
+                    </a>
+                    <a href="#"  class="footer_left_social_img">
+                        <img class="footer__whatsUp-img" src="{% static 'images/whatsUpGray.svg' %}" alt="whatsUp" width="25px"/>
+                    </a>
                 </div>
             </div>
             <div class="footer_right">
@@ -247,10 +247,10 @@
                         Курсы
                     </div>
                     <div class="footer_right_course_descr">
-                        <div>Создание курса с 0 под Android</div>
-                        <div>Создание курса с 0 под Android</div>
-                        <div>Создание курса с 0 под Android</div>
-                        <div>Создание курса с 0 под Android</div>
+                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
+                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
+                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
+                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
                     </div>
                 </div>
                 <div class="footer_right_lection">
@@ -259,10 +259,10 @@
                         <span>Лекции</span>
                     </div>
                     <div class="footer_right_lection_descr">
-                        <div>Создание курса с 0 под Android</div>
-                        <div>Создание курса с 0 под Android</div>
-                        <div>Создание курса с 0 под Android</div>
-                        <div>Создание курса с 0 под Android</div>
+                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
+                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
+                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
+                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
                     </div>
                 </div>
             </div>

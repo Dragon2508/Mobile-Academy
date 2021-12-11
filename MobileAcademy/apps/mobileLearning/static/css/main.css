@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto',Arial,sans-serif;
 
     line-height: 1.6;
-    color: rgb(0, 0, 0);
+
 }
 *,
 *:before,
@@ -94,6 +94,7 @@ a:hover{
     width: 250px;
 }
 .profile{
+    cursor: pointer !important;
     text-align: right;
     width: 250px;
     position: relative;
@@ -113,7 +114,7 @@ a:hover{
     text-decoration: none;
     display: block;
 }
-.profile-content a:hover {background-color: #ddd;}
+.profile-content a:hover {background-color: #ddd; color: rgb(29, 187, 179);}
 .profile:hover .profile-content {display: block;}
 
 
@@ -334,6 +335,7 @@ a:hover{
     image-rendering: auto;
     width: 50%;
     text-align: left;
+    color: #ffffff !important;
 }
 .footer_right_course_header{
     padding-bottom:10px ;
@@ -349,5 +351,24 @@ a:hover{
     color:#b3b3b3;
 }
 .footer_right_lection_descr{
+    color:#b3b3b3;
+}
+.footer__vk-img:hover{
+    border-radius: 5px;
+    outline: 2px solid rgb(29, 187, 179);
+}
+.footer__telegram-img:hover{
+    border-radius: 5px;
+    outline: 2px solid rgb(29, 187, 179);
+}
+.footer__twiter-img:hover{
+    border-radius: 5px;
+    outline: 2px solid rgb(29, 187, 179);
+}
+.footer__whatsUp-img:hover{
+    border-radius: 5px;
+    outline: 2px solid rgb(29, 187, 179);
+}
+.footer__item{
     color:#b3b3b3;
 }
