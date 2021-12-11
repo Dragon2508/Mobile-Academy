@@ -172,6 +172,7 @@ input{
     justify-content: space-between;
 }
 .block_content{
+    display: flex;
     width: 48%;
     background: #f7f7f5;
     border-radius: 20px;
@@ -194,9 +195,18 @@ input{
 .block_content_image{
     display: inline-block;
     vertical-align: middle;
-    margin-left: 30px;
+    margin-left: 40px;
+}
+.block_content_bot{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.block_content_star{
+    padding-right:30px ;
 }
 .block_content_time{
+    vertical-align: middle;
     padding-left: 30px;
     padding-bottom: 20px;
     font-size: 12px;
