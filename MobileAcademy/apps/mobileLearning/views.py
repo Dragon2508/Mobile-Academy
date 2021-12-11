@@ -85,10 +85,42 @@ def testing(request):
             obj.test_status = 'начат'
             obj.save()
             return HttpResponseRedirect(reverse('mobileLearning:testing'))
+    print(str(obj.right_answers.find('(1)')) + '---------------------------------------------------')
     return render(request, 'mobileLearning/courses/courseStart/testing.html',{'AccessCourse':obj})
 
 def answersOnQuestions(request):
     if request.POST:
+        obj = AccessCourse.objects.get( user = request.user.id,  course = 1) 
+        grade = 0
+        if (request.POST['firstQuestion'] == '2'):
+            obj.right_answers += '(1)'
+            grade +=1
+        else:
+            obj.wrong_answers += ' (1-'+ request.POST['firstQuestion']+')'
+        if (request.POST['secondQuestion'] == '4'):
+            obj.right_answers += '(2)'
+            grade +=1
+        else:
+            obj.wrong_answers += ' (2-'+ request.POST['secondQuestion']+')'
+        if (request.POST['thirdQuestion'] == '1'):
+            obj.right_answers += '(3)'
+            grade +=1
+        else:
+            obj.wrong_answers += ' (3-'+ request.POST['thirdQuestion']+')'
+        if (request.POST['fourthQuestion'] == '2'):
+            obj.right_answers += '(4)'
+            grade +=1
+        else:
+            obj.wrong_answers += ' (4-'+ request.POST['fourthQuestion']+')'
+        if (request.POST['fifthQuestion'] == '2'):
+            obj.right_answers += '(5)'
+            grade +=1
+        else:
+            obj.wrong_answers += ' (5-'+ request.POST['fifthQuestion']+')'
+
+        obj.test_status = str(grade)
+        
+        obj.save()
         return HttpResponseRedirect(reverse('mobileLearning:testing'))
 
 # mobileLearning/lections/
