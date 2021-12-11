@@ -31,6 +31,8 @@ class AccessCourse(models.Model):
     is_access = models.BooleanField('Есть ли доступ к курсу')
     is_passed = models.BooleanField('Пройден ли курс')
     test_status = models.CharField('Статус теста', default='не начат', max_length=20)
+    right_answers = models.CharField('Правильные варианты ответа', default='', max_length=50)
+    wrong_answers = models.CharField('Неправильные варианты ответа', default='', max_length=50)
 
 
 
