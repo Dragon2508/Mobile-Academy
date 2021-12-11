@@ -22,7 +22,11 @@
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
                     <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
+                    <span class="name_profile" href="#">{{request.user}}</span>
+                    <div class="profile-content">
+                        <a href="{% url 'mobileLearning:account' %}">Личный кабинет</a>
+                        <a href="{% url 'mobileLearning:loginOut' %}">Выйти</a>
+                    </div>
                 </div>
                 <!-- <div class="nav__link_auth">
                     <a class="nav__link" href="#" >
@@ -47,20 +51,20 @@
                 </div>
                 <p>Пошаговые инструкции для Windows: </p>    
                 <p>1. Запустите Visual Studio 2019. Для создания нового проекта, необходимо выбрать Создание проекта: </p>
-                <img class="course_image" src="{% static 'images/course/lesson_2/Screenshot_1.png'%}" width="100%"/>
+                <img class="course_image" src="{% static 'images/course/lesson_2/Screenshot_1.png'%}" width="70%"/>
                 <p>2. В создание проекта выполните поиск по слову  "Xamarin" и выберите тип проекта Мобильное приложение (Xamarin.Forms) :</p>
-                <img class="course_image" src="{% static 'images/course/lesson_2/Screenshot_2.png'%}" width="100%"/>
+                <img class="course_image" src="{% static 'images/course/lesson_2/Screenshot_2.png'%}" width="70%"/>
                 <p>3. В настройке нового проекта введите имя проекта и его расположение. Нажмите кнопку Создать в правом нижнем углу : </p>
-                <img class="course_image" src="{% static 'images/course/lesson_2/Screenshot_3.jpg'%}" width="100%"/>
+                <img class="course_image" src="{% static 'images/course/lesson_2/Screenshot_3.jpg'%}" width="70%"/>
                 <p>4. Выберите тип проекта Пустой,  убедитесь, что выбраны параметры Android и iOS и нажмите кнопку Создать:</p>
-                <img class="course_image" src="{% static 'images/course/lesson_2/Screenshot_4.png'%}" width="100%"/>
+                <img class="course_image" src="{% static 'images/course/lesson_2/Screenshot_4.png'%}" width="70%"/>
             </div>
             <div class="arrows">
-                <a id="arrows_left" href="{% url 'mobileLearning:lessonOne' %}">
-                    <img src="{% static 'images/course/arrow.png'%}" width="5%"/>
+                <a class="arrows_left" href="{% url 'mobileLearning:lessonOne' %}">
+                    <img src="{% static 'images/course/arrow_left.svg'%}" width="20%"/>
                 </a>
-                <a id="arrows_right" href="{% url 'mobileLearning:lessonThree' %}">
-                    <img src="{% static 'images/course/arrow.png'%}" width="5%"/>
+                <a class="arrows_right" href="{% url 'mobileLearning:lessonThree' %}">
+                    <img src="{% static 'images/course/arrow_right.svg'%}" width="20%"/>
                 </a>
             </div>
         </div>

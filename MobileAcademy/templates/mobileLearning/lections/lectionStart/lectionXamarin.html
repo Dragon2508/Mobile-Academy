@@ -23,7 +23,11 @@
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
                     <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
+                    <span class="name_profile" href="#">{{request.user}}</span>
+                    <div class="profile-content">
+                        <a href="{% url 'mobileLearning:account' %}">Личный кабинет</a>
+                        <a href="{% url 'mobileLearning:loginOut' %}">Выйти</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,7 +52,7 @@
                     </ul>
                 </p>
                 <p><b>Как работает платформа Xamarin</b></p>
-                <img class="course_image" src="{% static 'images/lection/begin_work_Xamarin/Xamarin_1picture.png'%}" width="100%"/>
+                <img class="course_image" src="{% static 'images/lection/begin_work_Xamarin/Xamarin_1picture.png'%}" width="70%"/>
                 <p>На этой схеме показана общая архитектура кроссплатформенного приложения Xamarin. С помощью Xamarin вы можете создавать собственный пользовательский интерфейс для каждой платформы и писать на языке C# общую бизнес-логику, которая будет использоваться на различных платформах. В большинстве случаев Xamarin позволяет использовать на разных платформах 80 % кода приложения.</p>
                 <p>В основе Xamarin лежит среда .NET, которая автоматически обрабатывает такие задачи, как выделение памяти, сборка мусора и обеспечение взаимодействия с базовыми платформами.</p>
                 <p><b>Добавленные компоненты</b></p>
@@ -65,10 +69,10 @@
                     </ol>
                 </p>
                 <p><b>Xamarin.Android</b></p>
-                <img class="course_image" src="{% static 'images/lection/begin_work_Xamarin/Xamarin_Android.png'%}" width="100%"/>
+                <img class="course_image" src="{% static 'images/lection/begin_work_Xamarin/Xamarin_Android.png'%}" width="70%"/>
                 <p>Приложения Xamarin.Android компилируются из языка C# в промежуточный язык (IL) , который при запуске приложения претерпевает Just-in-Time-компиляцию (JIT) в машинную сборку. Приложения Xamarin.Android работают в среде выполнения Mono параллельно с виртуальной машиной среды выполнения Android (ART). Xamarin предоставляет привязки .NET к пространствам имен Android.* и Java.*. Среда выполнения Mono обращается к этим пространствам имен с использованием управляемых вызываемых оболочек (MCW) и предоставляет среде выполнения ART вызываемые программы-оболочки Android (ACW) , благодаря чему обе среды могут вызывать код друг друга.</p>
                 <p><b>Xamarin.IOS</b></p>
-                <img class="course_image" src="{% static 'images/lection/begin_work_Xamarin/Xamarin_IOS.png'%}" width="100%"/>
+                <img class="course_image" src="{% static 'images/lection/begin_work_Xamarin/Xamarin_IOS.png'%}" width="70%"/>
                 <p>Приложения Xamarin.iOS проходят полную Ahead-of-Time-компиляцию (AOT) из языка C# в собственный код сборки ARM. Xamarin использует селекторы для предоставления кода Objective-C управляемому коду C# и регистраторы для предоставления управляемого кода C# коду Objective-C. Селекторы и регистраторы в совокупности называются "привязками" и обеспечивают взаимодействие между Objective-C и C#.</p>
                 <p><b>Xamarin.Essentials</b></p>
                 <p>Xamarin.Essentials — это библиотека, которая предоставляет кроссплатформенные API для собственных функций устройства. Как и сама платформа Xamarin, библиотека Xamarin.Essentials представляет собой абстракцию, которая упрощает процесс доступа к собственным функциям. Ниже приведены некоторые примеры функциональных возможностей, предоставляемых Xamarin.Essentials:</p>

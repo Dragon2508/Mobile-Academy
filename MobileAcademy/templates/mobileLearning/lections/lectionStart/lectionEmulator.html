@@ -23,7 +23,11 @@
                 <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
                 <div class="profile">
                     <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    <a class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</a>
+                    <span class="name_profile" href="#">{{request.user}}</span>
+                    <div class="profile-content">
+                        <a href="{% url 'mobileLearning:account' %}">Личный кабинет</a>
+                        <a href="{% url 'mobileLearning:loginOut' %}">Выйти</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -38,21 +42,21 @@
                 </div>
                 <p>Эмулятор Visual Studio для Android — это классическое приложение для эмуляции устройства Android.</p>    
                 <p>В случае возникновении данной ошибки  при запуске эмулятора </p>
-                <img class="course_image" src="{% static 'images/lection/эмулятор/1.png'%}" width="100%"/>
+                <img class="course_image" src="{% static 'images/lection/эмулятор/1.png'%}" width="70%"/>
                 <p>Необходимо выполнить ряд следующих действий:</p>
                 <p>
                     <ol>
                         <li>Необходимо выполнить поиск данной папки (путь по умолчанию: С:\Users\User\.android) .</li>
-                        <img class="course_image" src="{% static 'images/lection/эмулятор/2.png'%}" width="100%"/>
+                        <img class="course_image" src="{% static 'images/lection/эмулятор/2.png'%}" width="70%"/>
                         <li>Создать папку Android_SDK_HOME  в корневом каталоге диска С и скопировать в неё папку .android</li>
-                        <img class="course_image" src="{% static 'images/lection/эмулятор/3.png'%}" width="100%"/>
-                        <img class="course_image" src="{% static 'images/lection/эмулятор/4.png'%}" width="100%"/>
+                        <img class="course_image" src="{% static 'images/lection/эмулятор/3.png'%}" width="70%"/>
+                        <img class="course_image" src="{% static 'images/lection/эмулятор/4.png'%}" width="70%"/>
                         <li>В папке C:\Android_SDK_HOME\.android\avd необходимо найти файл с расширением .ini и названием вашего эмулятора.</li>
-                        <img class="course_image" src="{% static 'images/lection/эмулятор/5.png'%}" width="100%"/>
+                        <img class="course_image" src="{% static 'images/lection/эмулятор/5.png'%}" width="70%"/>
                         <li>Необходимо открыть файл при помощи блокнота и изменить путь, как показано на рисунке ниже.</li>
-                        <img class="course_image" src="{% static 'images/lection/эмулятор/6.png'%}" width="100%"/>
+                        <img class="course_image" src="{% static 'images/lection/эмулятор/6.png'%}" width="70%"/>
                         <li>Открыть панель управления, в поиске набрать «переменные» и кликнуть на пункт изменение системных переменных среды. Далее необходимо кликнуть на выделенную кнопку и создать переменные, как показано на рисунке ниже</li>
-                        <img class="course_image " src="{% static 'images/lection/эмулятор/7.png'%}" width="100%"/>
+                        <img class="course_image " src="{% static 'images/lection/эмулятор/7.png'%}" width="70%"/>
                         <div class="center">
                             <img class="course_image" src="{% static 'images/lection/эмулятор/8.png'%}" width="50%"/>
                         </div>
