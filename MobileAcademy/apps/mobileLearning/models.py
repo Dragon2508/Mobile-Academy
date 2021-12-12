@@ -7,7 +7,7 @@ import datetime
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     second_name = models.CharField('Отчество', blank=True, default='', max_length= 150)
-    birth_date = models.DateField('Дата рождения', blank=True, default=datetime.date(1,1,1))
+    birth_date = models.DateField('Дата рождения', blank=True, default=datetime.datetime.now())
     phone = models.CharField('Телефон', blank=True, default='',  max_length = 12)
     city = models.CharField('Город', blank=True, default='',  max_length = 150)
     region = models.CharField('Область', blank=True, default='',  max_length = 150)
