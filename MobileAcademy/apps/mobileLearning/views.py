@@ -38,6 +38,7 @@ def loginOut(request):
     return HttpResponseRedirect(reverse('mobileLearning:main'))
 
 def login(request):
+    chechAuthentication = True
     if request.POST:
         userName = request.POST['username']
         psw = request.POST['password']
@@ -45,7 +46,10 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             return HttpResponseRedirect(reverse('mobileLearning:main'))
-    return render(request, 'mobileLearning/login.html')
+        else: 
+            chechAuthentication = False
+            return render(request, 'mobileLearning/login.html',{'chechAuthentication': chechAuthentication})
+    return render(request, 'mobileLearning/login.html',{'chechAuthentication': chechAuthentication})
 def registration(request):
     form = CustomUserCreationForm()
     if request.POST:

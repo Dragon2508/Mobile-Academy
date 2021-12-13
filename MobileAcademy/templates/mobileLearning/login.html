@@ -34,7 +34,11 @@
                     <input type="text" name="username"  class="input__block" placeholder="Логин">
                     <br>
                     <input type="password" name="password" class="input__block" placeholder="Пароль">
-                    <br>
+                    {% if chechAuthentication == False %}
+                        <p id="wrapper_title_2">Вы ввели неверные данные</p>
+                    {% else %}
+                        <p id="wrapper_title_2"></p>
+                    {% endif %}
                     <button class="btn_login">Войти</button>
                 </form>
             </div>
