@@ -23,7 +23,10 @@ class Profile(models.Model):
         instance.profile.save()
 
 class Course(models.Model):
-    title = models.CharField('Название курса', max_length = 200)
+    title = models.CharField('Название курса', max_length = 200, default='')
+    image = models.CharField('Фото курса', max_length = 200, default='')
+    time = models.CharField('Время прохождения',max_length = 20, default='')
+    start_course = models.CharField('Ссылка на старт курса',max_length = 50, default='')
 
 class AccessCourse(models.Model):
     course = models.ForeignKey(Course, on_delete= models.CASCADE)

@@ -1,6 +1,7 @@
 
 {% extends 'base.html' %}
-{% load static %}  
+{% load static %} 
+{% load  newTegs %}   
     {% block head %}<link rel="stylesheet" href="{% static 'css/courses/listOfCourse.css'%}">{% endblock head %}
     {% block title %}Список курсов{% endblock title %}
 
@@ -86,45 +87,90 @@
                     <div class="listCourses_inner_content">
                         <div class="listCourses_inner_content_title">
                             <div class="course__style">Курсы</div>
-                            <div class="list__style">6 курсов</div>
+                            <div class="list__style">Всего: {{courses.count}}</div>
                         </div>
                         <div class="listCourses_inner_content_block">
-                            <div class="block_content">
-                                {% if request.user.is_authenticated %}
-                                    <a href="{% url 'mobileLearning:lessonOne' %}">
-                                        <div class="block_content_title">
-                                            Старт в Android: создай первое своё приложение
-                                        </div>
-                                        <div class="block_content_image">
-                                            <img src="{% static 'images/course/android_start.png'%}" height="80px"/>
-                                        </div>
-                                        <div class="block_content_bot">
+                            {% for a in courses %}
+                                <div class="block_content">
+                                    {% if request.user.is_authenticated %}
+                                    {% getAccessCourse request.user.id a.title as AccessCourse %}
+                                        <a href="{% url a.start_course %}">
+                                            <div class="block_content_title">
+                                                {{a.title}}
+                                            </div>
+                                            <div class="block_content_image">
+                                                <img src="{% static a.image%}" height="80px"/>
+                                            </div>
+                                            <div class="block_content_bot">
+                                                <div class="block_content_time">
+                                                    {{a.time}}
+                                                </div>
+                                                {% if AccessCourse.test_status == "0" %}
+                                                    <div class="block_content_star">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                    </div>
+                                                {% elif  AccessCourse.test_status == "1"%}
+                                                    <div class="block_content_star">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                    </div>
+                                                {% elif  AccessCourse.test_status == "2"%}
+                                                    <div class="block_content_star">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                    </div>
+                                                {% elif  AccessCourse.test_status == "3"%}
+                                                    <div class="block_content_star">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                    </div>
+                                                {% elif  AccessCourse.test_status == "4"%}
+                                                    <div class="block_content_star">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
+                                                    </div>
+                                                {% elif  AccessCourse.test_status == "5"%}
+                                                    <div class="block_content_star">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                        <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'mobileLearning:login' %}">
+                                            <div class="block_content_title">
+                                                {{a.title}}
+                                            </div>
+                                            <div class="block_content_image">
+                                                <img src="{% static a.image%}" height="80px"/>
+                                            </div>
                                             <div class="block_content_time">
-                                                1 день
+                                                {{a.time}} 
                                             </div>
-                                            <div class="block_content_star">
-                                                <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
-                                                <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
-                                                <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
-                                                <img class="star" src="{% static 'images/course/testing/starfill.png'%}" alt="" width="30">
-                                                <img class="star" src="{% static 'images/course/testing/starempty.png'%}" alt="" width="30">
-                                            </div>
-                                        </div>
-                                    </a>
-                                {% else %}
-                                    <a href="{% url 'mobileLearning:login' %}">
-                                        <div class="block_content_title">
-                                            Старт в Android: создай первое своё приложение
-                                        </div>
-                                        <div class="block_content_image">
-                                            <img src="{% static 'images/lk_user.svg'%}" height="80px"/>
-                                        </div>
-                                        <div class="block_content_time">
-                                            1 день  
-                                        </div>
-                                    </a>
-                                {% endif %}
-                            </div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

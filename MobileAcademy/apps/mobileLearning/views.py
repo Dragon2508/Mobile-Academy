@@ -69,7 +69,11 @@ def registration(request):
 
 # mobileLearning/courses/
 def listOfCourse(request):
-    return render(request, 'mobileLearning/courses/listOfCourse.html')
+    try:
+        obj = Course.objects.all()
+    except:
+        obj = None
+    return render(request, 'mobileLearning/courses/listOfCourse.html', {'courses':obj})
 
 # mobileLearning/courses/courseStart/
 def lessonOne(request):
