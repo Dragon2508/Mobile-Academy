@@ -82,7 +82,10 @@ a:hover{
     padding-top: 40px;
 }
 #image_search{
-margin-left: 5px;
+    margin-left: 5px;
+}
+#input_text{
+    width: 90%;
 }
 input{
     outline: none;
