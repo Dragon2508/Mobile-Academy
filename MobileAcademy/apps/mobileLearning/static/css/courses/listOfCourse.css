@@ -102,6 +102,9 @@ a:hover{
 #image_search{
 margin-left: 5px;
 }
+#input_text{
+    width: 90%;
+}
 input{
     outline: none;
     border: none;

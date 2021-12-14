@@ -14,27 +14,39 @@
                         <img class="image__icon" src="{% static 'images/Course.svg'%}" alt="Курсы" width="15">
                         Курсы
                     </a>
-                    <a class="nav__link" href="{% url 'mobileLearning:listOfLection' %}">
+                    <a class="nav__link" href="{% url 'mobileLearning:listOfLection'%}">
                         <img class="image__icon" src="{% static 'images/Lection.svg'%}" alt="Лекции" width="15">
                         Лекции
                     </a>
                 </div>
-                <a href="{% url 'mobileLearning:main' %}" ><img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo"></a>
-                <div class="profile">
-                    {% if imageUser and imageUser != 'None' %}
-                        {% if imageUser.height > imageUser.width %}
-                            <div class="image__icon"  style = "width: 50px; height: 50px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 50px;"></div>
-                        {% else %}
-                            <div class="image__icon"  style = "width: 50px; height: 50px; border-radius: 50%; background: url({{imageUser.url}}) center no-repeat;  background-size: auto 50px;"></div>
-                        {% endif %}
-                    {% else %}
-                            <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
-                    {% endif %}
-                    <a class="name_profile" href="#">{{request.user}}</a>
-                </div>
+            <a href="{% url 'mobileLearning:main' %}" >
+                <img class="logo" src="{% static 'images/Logo.svg'%}" alt="Logo">
+                </a>
+                {% if request.user.is_authenticated %}
+                    <div class="profile">
+                        <img class="image__icon" src="{% static 'images/img_login.svg'%}" alt="login" width="20">
+                        <span class="name_profile" href="{% url 'mobileLearning:account' %}">{{request.user}}</span>
+                        <div class="profile-content">
+                            <a href="{% url 'mobileLearning:account' %}">Личный кабинет</a>
+                            <a href="{% url 'mobileLearning:loginOut' %}">Выйти</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="nav__link_auth">
+                        <a class="nav__link" href="{% url 'mobileLearning:login' %}" >
+                            <img class="image__icon" src="{% static 'images/Login.svg'%}" width = "15" alt="">
+                            Вход
+                        </a>
+                        <a class="nav__link" href="#" >
+                            <img class="image__icon" src="{% static 'images/RegistrationTwo.svg'%}" width="15" alt="">
+                            Регистрация
+                        </a>
+                    </div>
+                {%endif%}
             </div>
         </div>
     </header>
+
     <div class="account">
         <form action = "{% url 'mobileLearning:account' %}" method = POST enctype="multipart/form-data">
         {% csrf_token %}
