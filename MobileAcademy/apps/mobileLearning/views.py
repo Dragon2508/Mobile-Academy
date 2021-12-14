@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms  import CustomUserCreationForm
-from .models import AccessCourse, Course
+from .models import AccessCourse, Course, Lection
 
 # mobileLearning/
 def account(request):
@@ -136,7 +136,11 @@ def answersOnQuestions(request):
 
 # mobileLearning/lections/
 def listOfLection(request):
-    return render(request, 'mobileLearning/lections/listOfLection.html')
+    try:
+        obj = Lection.objects.all()
+    except:
+        obj = None
+    return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj})
 
 # mobileLearning/lections/lectionStart/
 def lectionEmulator(request):

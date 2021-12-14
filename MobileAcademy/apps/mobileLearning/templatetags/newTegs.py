@@ -18,3 +18,16 @@ def getAccessCourse(idUser, courseTitle):
     print(courseTitle)
     print(courseId)
     return AccessCourse.objects.get(user = idUser,  course = courseId)
+
+@register.simple_tag()
+def inkr(a, b):
+    print("-------------"+ str(a) + "------------------------")
+    print("-------------"+ str(b)+ "------------------------")
+    i = a + b
+    return i
+    
+@register.simple_tag()
+def compare(a, b):
+    c = a == b
+    print(c)
+    return c

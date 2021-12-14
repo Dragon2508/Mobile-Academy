@@ -37,6 +37,12 @@ class AccessCourse(models.Model):
     right_answers = models.CharField('Правильные варианты ответа', default='', max_length=50)
     wrong_answers = models.CharField('Неправильные варианты ответа', default='', max_length=50)
 
+class Lection(models.Model):
+    title = models.CharField('Название курса', max_length = 200, default='')
+    image = models.CharField('Фото курса', max_length = 200, default='')
+    time = models.CharField('Время прохождения',max_length = 20, default='')
+    start_lection = models.CharField('Ссылка на старт курса',max_length = 50, default='')
+
 
 
 

@@ -1,6 +1,7 @@
 
 {% extends 'base.html' %}
 {% load static %}  
+{% load  newTegs %}  
     {% block head %}<link rel="stylesheet" href="{% static 'css/lections/listOfLection.css'%}">{% endblock head %}
     {% block title %}Список лекций{% endblock title %}
 
@@ -72,23 +73,33 @@
                     <div class="listCourses_inner_content">
                         <div class="listCourses_inner_content_title">
                             <div class="course__style">Лекции</div>
-                            <div class="list__style">4 лекции</div>
+                            <div class="list__style">Всего: {{lections.count}}</div>
                         </div>
-                        <div class="listCourses_inner_content_block">
-                            <div class="block_content">
-                                <a href="{% url 'mobileLearning:lectionVisual' %}">
-                                    <div class="block_content_title">
-                                        Что такое Microsoft Visual Studio?
+                        {% equating 1 as i %}
+                        {% for a in lections %}
+                            {% if  i  == 1 %}
+                                <div class="listCourses_inner_content_block">
+                            {% endif %}
+                                    <div class="block_content">
+                                        <a href="{% url a.start_lection %}">
+                                            <div class="block_content_title">
+                                                {{a.title}}
+                                            </div>
+                                            <div class="block_content_image">
+                                                <img src="{% static a.image%}" height="50px"/>
+                                            </div>
+                                            <div class="block_content_time">
+                                                {{a.time}}
+                                            </div>
+                                        </a>
                                     </div>
-                                    <div class="block_content_image">
-                                        <img src="{% static 'images/visual_icon.png'%}" height="55px"/>
+                                {% inkr i 1 as i %}
+                                {% if  i  == 4 %}
                                     </div>
-                                    <div class="block_content_time">
-                                        7 мин
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="block_content">
+                                    {% equating 1 as i %}
+                                {% endif %}
+                        {% endfor %}
+                            {% comment %} <div class="block_content">
                                 <a href="{% url 'mobileLearning:lectionCSharp' %}">
                                     <div class="block_content_title">
                                         Основы C#. Создание первого проекта.
@@ -129,7 +140,7 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                 </div>
             </div>
