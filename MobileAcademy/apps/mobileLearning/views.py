@@ -136,11 +136,29 @@ def answersOnQuestions(request):
 
 # mobileLearning/lections/
 def listOfLection(request):
+    filter = 'All'
     try:
-        obj = Lection.objects.all()
+        obj = Lection.objects.all() 
+        countLections = obj.count()
     except:
         obj = None
-    return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj})
+        countLections = 0
+    if request.GET.get('navAll'):
+        obj = Lection.objects.all()
+        filter = 'All'
+        return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
+    if request.GET.get('navAndroid'):
+        filter = 'Android'
+        obj = Lection.objects.filter(direction = 'Android')
+        return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
+    if request.GET.get('navIOS'):
+        try:
+            filter = 'IOS'
+            obj = Lection.objects.filter(direction = 'IOS')
+        except:
+            obj = None
+        return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
+    return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
 
 # mobileLearning/lections/lectionStart/
 def lectionEmulator(request):

@@ -14,20 +14,20 @@ def equating(str):
 @register.simple_tag()
 def getAccessCourse(idUser, courseTitle):
     courseId =  Course.objects.get(title = courseTitle).id
-    print(idUser)
-    print(courseTitle)
-    print(courseId)
+    # print(idUser)
+    # print(courseTitle)
+    # print(courseId)
     return AccessCourse.objects.get(user = idUser,  course = courseId)
 
 @register.simple_tag()
 def inkr(a, b):
-    print("-------------"+ str(a) + "------------------------")
-    print("-------------"+ str(b)+ "------------------------")
+    # print("-------------"+ str(a) + "------------------------")
+    # print("-------------"+ str(b)+ "------------------------")
     i = a + b
     return i
     
 @register.simple_tag()
 def compare(a, b):
     c = a == b
-    print(c)
+    # print(c)
     return c

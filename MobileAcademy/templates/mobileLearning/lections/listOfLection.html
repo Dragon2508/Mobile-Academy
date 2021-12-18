@@ -60,20 +60,45 @@
                 <div class="lineForSearch"></div>
                 <div class="listCourses_inner_block">
                     <div class="listCourses_inner_nav">
-                        <div class="listCourses_inner_element">
-                            <p class="navAll">Все направления</p>
-                        </div>
-                        <div class="listCourses_inner_element">
-                            <p class="navAll">Android</p>
-                        </div>
-                        <div class="listCourses_inner_element">
-                            <p class="navAll">IOS</p>
-                        </div>
+                        <form action = "{% url 'mobileLearning:listOfLection' %}" method = GET>
+                        {% csrf_token %}
+                            {%if filter == 'All'%}
+                                <div>
+                                    <input type="submit" name="navAll" class="navAllInp" style="color: #ffffff; background: #1a116e;" value="Все направления">
+                                </div>
+                                <div>
+                                    <input type="submit" name="navAndroid" class="navAllInp" value="Android">
+                                </div>
+                                <div>
+                                    <input type="submit" name="navIOS" class="navAllInp" value="IOS">
+                                </div>
+                            {%elif filter == 'Android'%}
+                                <div>
+                                    <input type="submit" name="navAll" class="navAllInp" value="Все направления">
+                                </div>
+                                <div>
+                                    <input type="submit" name="navAndroid" class="navAllInp" style="color: #ffffff; background: #1a116e;" value="Android">
+                                </div>
+                                <div>
+                                    <input type="submit" name="navIOS" class="navAllInp" value="IOS">
+                                </div>
+                            {% elif filter == 'IOS'%}
+                                <div>
+                                    <input type="submit" name="navAll" class="navAllInp" value="Все направления">
+                                </div>
+                                <div>
+                                    <input type="submit" name="navAndroid" class="navAllInp" value="Android">
+                                </div>
+                                <div>
+                                    <input type="submit" name="navIOS" class="navAllInp" style="color: #ffffff; background: #1a116e;" value="IOS">
+                                </div>
+                            {%endif%}
+                        </form>
                     </div>
                     <div class="listCourses_inner_content">
                         <div class="listCourses_inner_content_title">
                             <div class="course__style">Лекции</div>
-                            <div class="list__style">Всего: {{lections.count}}</div>
+                            <div class="list__style">Всего: {{countLections}}</div>
                         </div>
                         {% equating 1 as i %}
                         {% for a in lections %}

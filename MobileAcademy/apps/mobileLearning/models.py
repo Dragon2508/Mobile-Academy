@@ -42,7 +42,7 @@ class Lection(models.Model):
     image = models.CharField('Фото курса', max_length = 200, default='')
     time = models.CharField('Время прохождения',max_length = 20, default='')
     start_lection = models.CharField('Ссылка на старт курса',max_length = 50, default='')
-
+    direction = models.CharField('Направление подготовки',max_length = 50, default='ALL')
 
 
 
