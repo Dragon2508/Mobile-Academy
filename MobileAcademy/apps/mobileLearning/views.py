@@ -31,7 +31,9 @@ def account(request):
     #print(imageUser.width)
     return render(request, 'mobileLearning/account.html',{'imageUser': imageUser})
 def index(request):
-    return render(request, 'mobileLearning/main.html')
+    courses = Course.objects.all()[:4]
+    lections = Lection.objects.all()[:4]
+    return render(request, 'mobileLearning/main.html',{'courses': courses, 'lections': lections})
 
 def loginOut(request):
     auth.logout(request) 
@@ -69,11 +71,33 @@ def registration(request):
 
 # mobileLearning/courses/
 def listOfCourse(request):
+    filter = 'All'
     try:
-        obj = Course.objects.all()
+        obj = Course.objects.all() 
+        countCourse = obj.count()
     except:
         obj = None
-    return render(request, 'mobileLearning/courses/listOfCourse.html', {'courses':obj})
+        countCourse = 0
+    if request.GET.get('navAll'):
+        obj = Course.objects.all()
+        filter = 'All'
+        countCourse = obj.count()
+        return render(request, 'mobileLearning/courses/listOfCourse.html',{'courses':obj, 'countCourse':countCourse, 'filter': filter})
+    if request.GET.get('navAndroid'):
+        filter = 'Android'
+        obj = Course.objects.filter(direction = 'Android')
+        countCourse = obj.count()
+        return render(request, 'mobileLearning/courses/listOfCourse.html',{'courses':obj, 'countCourse':countCourse, 'filter': filter})
+    if request.GET.get('navIOS'):
+        try:
+            filter = 'IOS'
+            obj = Course.objects.filter(direction = 'IOS')
+            countCourse = obj.count()
+        except:
+            obj = None
+            countCourse = 0
+        return render(request, 'mobileLearning/courses/listOfCourse.html',{'courses':obj, 'countCourse':countCourse, 'filter': filter})
+    return render(request, 'mobileLearning/courses/listOfCourse.html', {'courses':obj, 'countCourse':countCourse, 'filter': filter})
 
 # mobileLearning/courses/courseStart/
 def lessonOne(request):
@@ -146,17 +170,21 @@ def listOfLection(request):
     if request.GET.get('navAll'):
         obj = Lection.objects.all()
         filter = 'All'
+        countLections = obj.count()
         return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
     if request.GET.get('navAndroid'):
         filter = 'Android'
         obj = Lection.objects.filter(direction = 'Android')
+        countLections = obj.count()
         return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
     if request.GET.get('navIOS'):
         try:
             filter = 'IOS'
             obj = Lection.objects.filter(direction = 'IOS')
+            countLections = obj.count()
         except:
             obj = None
+            countLections = 0
         return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
     return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
 

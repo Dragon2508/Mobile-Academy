@@ -59,11 +59,24 @@
                 <div class="listCourses_inner_block">
                     <div class="listCourses_inner_nav">
 
-                        <input type="submit" class="listCourses_inner_element navAll" value="Все направлиния">
-                        <input type="submit" class="listCourses_inner_element navAll" value="Android">
-                        <input type="submit" class="listCourses_inner_element navAll" value="IOS">
+                        <form action = "{% url 'mobileLearning:listOfCourse' %}" method = GET>
+                            {% csrf_token %}
+                                {%if filter == 'All'%}
+                                        <input type="submit" name="navAll" class="listCourses_inner_element navAll" style="color: #ffffff; background: #1a116e;" value="Все направления">
+                                        <input type="submit" name="navAndroid" class="listCourses_inner_element navAll" value="Android">
+                                        <input type="submit" name="navIOS" class="listCourses_inner_element navAll" value="IOS">
+                                {%elif filter == 'Android'%}
+                                        <input type="submit" name="navAll" class="listCourses_inner_element navAll" value="Все направления">
+                                        <input type="submit" name="navAndroid" class="listCourses_inner_element navAll" style="color: #ffffff; background: #1a116e;" value="Android">
+                                        <input type="submit" name="navIOS" class="listCourses_inner_element navAll" value="IOS">
+                                {% elif filter == 'IOS'%}
+                                        <input type="submit" name="navAll" class="listCourses_inner_element navAll" value="Все направления">
+                                        <input type="submit" name="navAndroid" class="listCourses_inner_element navAll" value="Android">
+                                        <input type="submit" name="navIOS" class="listCourses_inner_element navAll" style="color: #ffffff; background: #1a116e;" value="IOS">
+                                {%endif%}
+                            </form>
 
-                        <div class="lineForSearch"></div>
+                        {% comment %} <div class="lineForSearch"></div>
                         <div class="titleLevel">
                             <p>Уровень сложности</p>
                         </div>
@@ -78,15 +91,18 @@
                         <div class="typeLevel">
                             <input type="radio">
                             <span>Для специалистов</span>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                     <div class="listCourses_inner_content">
                         <div class="listCourses_inner_content_title">
                             <div class="course__style">Курсы</div>
-                            <div class="list__style">Всего: {{courses.count}}</div>
+                            <div class="list__style">Всего: {{countCourse}}</div>
                         </div>
-                        <div class="listCourses_inner_content_block">
-                            {% for a in courses %}
+                        {% equating 1 as i %}
+                        {% for a in courses %}
+                            {% if  i  == 1 %}
+                                <div class="listCourses_inner_content_block">
+                            {% endif %}
                                 <div class="block_content">
                                     {% if request.user.is_authenticated %}
                                     {% getAccessCourse request.user.id a.title as AccessCourse %}
@@ -166,8 +182,12 @@
                                         </a>
                                     {% endif %}
                                 </div>
-                            {% endfor %}
-                        </div>
+                                {% inkr i 1 as i %}
+                                {% if  i  == 4 %}
+                                    </div>
+                                    {% equating 1 as i %}
+                                {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
