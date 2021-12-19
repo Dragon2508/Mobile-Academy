@@ -63,35 +63,17 @@
                         <form action = "{% url 'mobileLearning:listOfLection' %}" method = GET>
                         {% csrf_token %}
                             {%if filter == 'All'%}
-                                <div>
-                                    <input type="submit" name="navAll" class="navAllInp" style="color: #ffffff; background: #1a116e;" value="Все направления">
-                                </div>
-                                <div>
-                                    <input type="submit" name="navAndroid" class="navAllInp" value="Android">
-                                </div>
-                                <div>
-                                    <input type="submit" name="navIOS" class="navAllInp" value="IOS">
-                                </div>
+                                    <input type="submit" name="navAll" class="listCourses_inner_element navAll" style="color: #ffffff; background: #1a116e;" value="Все направления">
+                                    <input type="submit" name="navAndroid" class="listCourses_inner_element navAll" value="Android">
+                                    <input type="submit" name="navIOS" class="listCourses_inner_element navAll" value="IOS">
                             {%elif filter == 'Android'%}
-                                <div>
-                                    <input type="submit" name="navAll" class="navAllInp" value="Все направления">
-                                </div>
-                                <div>
-                                    <input type="submit" name="navAndroid" class="navAllInp" style="color: #ffffff; background: #1a116e;" value="Android">
-                                </div>
-                                <div>
-                                    <input type="submit" name="navIOS" class="navAllInp" value="IOS">
-                                </div>
+                                    <input type="submit" name="navAll" class="listCourses_inner_element navAll" value="Все направления">
+                                    <input type="submit" name="navAndroid" class="listCourses_inner_element navAll" style="color: #ffffff; background: #1a116e;" value="Android">
+                                    <input type="submit" name="navIOS" class="listCourses_inner_element navAll" value="IOS">
                             {% elif filter == 'IOS'%}
-                                <div>
-                                    <input type="submit" name="navAll" class="navAllInp" value="Все направления">
-                                </div>
-                                <div>
-                                    <input type="submit" name="navAndroid" class="navAllInp" value="Android">
-                                </div>
-                                <div>
-                                    <input type="submit" name="navIOS" class="navAllInp" style="color: #ffffff; background: #1a116e;" value="IOS">
-                                </div>
+                                    <input type="submit" name="navAll" class="listCourses_inner_element navAll" value="Все направления">
+                                    <input type="submit" name="navAndroid" class="listCourses_inner_element navAll" value="Android">
+                                    <input type="submit" name="navIOS" class="listCourses_inner_element navAll" style="color: #ffffff; background: #1a116e;" value="IOS">
                             {%endif%}
                         </form>
                     </div>

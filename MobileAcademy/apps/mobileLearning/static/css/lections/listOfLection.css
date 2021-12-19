@@ -20,6 +20,12 @@ a{
 a:hover{
     color: #00cec3;
 }
+input{
+    outline: none;
+    border: none;
+    padding: 0;
+    background: none;
+}
 
 
 /* Container */
@@ -87,12 +93,6 @@ a:hover{
 #input_text{
     width: 90%;
 }
-input{
-    outline: none;
-    border: none;
-    padding: 0;
-    background: none;
-}
 .listCourses_inner_search{
     background: #ecedf4;
     width: 20%;
@@ -115,31 +115,19 @@ input{
     display: inline-block;
 }
 .listCourses_inner_element:hover{
-    color: #ffffff;
-    background: #1a116e;
+    color: #00b6ad;
+    border:1px solid #00b6ad;
 }
 .listCourses_inner_element{
-    padding: 5px;
+    padding: 7px;
+    width: 100%;
+    font-size: 16px;
     background: white;
     border: 1px solid black;
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
-}
-.navAllInp{
-    padding: 10px;
-    width: 280px;
-    background: white;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-align: center;
-}
-.navAllInp:hover{
-    color: #ffffff;
-    background: #1a116e;
 }
 .titleLevel{
     font-weight: 600;

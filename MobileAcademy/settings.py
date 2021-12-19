@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'bddjango',
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'root',
-        'PASSWORD': 'DcA4~6gfec7K',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
     }
 }

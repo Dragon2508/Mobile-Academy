@@ -21,13 +21,18 @@ a{
 a:hover{
     color: #00cec3;
 }
+input{
+    outline: none;
+    border: none;
+    padding: 0;
+    background: none;
+}
 
 /* Container */
 .container {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-
 }
 
 /* Header */
@@ -105,12 +110,6 @@ margin-left: 5px;
 #input_text{
     width: 90%;
 }
-input{
-    outline: none;
-    border: none;
-    padding: 0;
-    background: none;
-}
 .listCourses_inner_search{
     background: #ecedf4;
     width: 20%;
@@ -133,11 +132,13 @@ input{
     display: inline-block;
 }
 .listCourses_inner_element:hover{
-    color: #ffffff;
-    background: #1a116e;
+    color: #00b6ad;
+    border:1px solid #00b6ad;
 }
 .listCourses_inner_element{
-    padding: 5px;
+    padding: 7px;
+    width: 100%;
+    font-size: 16px;
     background: white;
     border: 1px solid black;
     border-radius: 10px;
