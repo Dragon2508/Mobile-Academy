@@ -31,3 +31,7 @@ def compare(a, b):
     c = a == b
     # print(c)
     return c
+
+@register.simple_tag()
+def takeElement(a, b):
+    return a[b]

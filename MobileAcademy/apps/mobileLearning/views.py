@@ -5,11 +5,22 @@ from django.contrib.auth.forms import UserCreationForm, UsernameField
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms  import CustomUserCreationForm
-from .models import AccessCourse, Course, Lection
+from .models import AccessCourse, Course, Lection, Profile
+from django.core.files.storage import default_storage
+import datetime
 
 # mobileLearning/
 def account(request):
     imageUser = request.user.profile.images
+    data = []
+    data.append(request.user.last_name)
+    data.append(request.user.first_name)
+    data.append(request.user.profile.second_name)
+    data.append(request.user.profile.birth_date)
+    data.append(request.user.email)
+    data.append(request.user.profile.phone)
+    data.append(request.user.profile.city)
+    data.append(request.user.profile.region)
     if request.POST:
         post_data = request.POST
         if 'btnSave' in post_data:
@@ -27,9 +38,32 @@ def account(request):
                 print('Не было фото')
             request.user.save()
             return HttpResponseRedirect(reverse('mobileLearning:account'))
+        if 'btnDelete' in post_data:
+            data = []
+            data.append(request.POST['last_name'])
+            data.append(request.POST['first_name'])
+            data.append(request.POST['second_name'])
+            try:
+                data.append(datetime.datetime.strptime(request.POST['birth_date'], "%Y-%m-%d"))
+            except:
+                data.append(request.user.profile.birth_date)
+            data.append(request.POST['email'])
+            data.append(request.POST['phone'])
+            data.append(request.POST['city'])
+            data.append(request.POST['region'])
+            try:
+                default_storage.delete(str(request.user.profile.images))
+            except:
+                print('Не было фото')
+            request.user.profile.images = Profile.images.field.get_default()
+            request.user.save()
+            imageUser = request.user.profile.images
+            return render(request, 'mobileLearning/account.html',{'imageUser': imageUser, 'data': data})
+        if 'data' in post_data:
+            print('1----------------------------------------------------------------------')
     #print(imageUser.height)
     #print(imageUser.width)
-    return render(request, 'mobileLearning/account.html',{'imageUser': imageUser})
+    return render(request, 'mobileLearning/account.html',{'imageUser': imageUser, 'data': data})
 def index(request):
     courses = Course.objects.all()[:4]
     lections = Lection.objects.all()[:4]
@@ -71,6 +105,7 @@ def registration(request):
 
 # mobileLearning/courses/
 def listOfCourse(request):
+    search = ''
     filter = 'All'
     try:
         obj = Course.objects.all() 
@@ -82,12 +117,24 @@ def listOfCourse(request):
         obj = Course.objects.all()
         filter = 'All'
         countCourse = obj.count()
-        return render(request, 'mobileLearning/courses/listOfCourse.html',{'courses':obj, 'countCourse':countCourse, 'filter': filter})
+
+        newObj = []
+        search = request.GET['input_text']
+        for course in obj:
+            if search in str(course.title):
+                newObj.append(course)
+        countCourse = len(newObj)
+        return render(request, 'mobileLearning/courses/listOfCourse.html',{'courses':newObj, 'countCourse':countCourse, 'filter': filter, 'search':search})
     if request.GET.get('navAndroid'):
         filter = 'Android'
         obj = Course.objects.filter(direction = 'Android')
-        countCourse = obj.count()
-        return render(request, 'mobileLearning/courses/listOfCourse.html',{'courses':obj, 'countCourse':countCourse, 'filter': filter})
+        newObj = []
+        search = request.GET['input_text']
+        for course in obj:
+            if search in str(course.title):
+                newObj.append(course)
+        countCourse = len(newObj)
+        return render(request, 'mobileLearning/courses/listOfCourse.html',{'courses':newObj, 'countCourse':countCourse, 'filter': filter, 'search':search})
     if request.GET.get('navIOS'):
         try:
             filter = 'IOS'
@@ -96,8 +143,24 @@ def listOfCourse(request):
         except:
             obj = None
             countCourse = 0
-        return render(request, 'mobileLearning/courses/listOfCourse.html',{'courses':obj, 'countCourse':countCourse, 'filter': filter})
-    return render(request, 'mobileLearning/courses/listOfCourse.html', {'courses':obj, 'countCourse':countCourse, 'filter': filter})
+        newObj = []
+        search = request.GET['input_text']
+        for course in obj:
+            if search in str(course.title):
+                newObj.append(course)
+        countCourse = len(newObj)
+        return render(request, 'mobileLearning/courses/listOfCourse.html',{'courses':newObj, 'countCourse':countCourse, 'filter': filter, 'search':search})
+    if request.GET.get('input_text'):
+        obj = Course.objects.all()
+        newObj = []
+        search = request.GET['input_text']
+        for course in obj:
+            if search in str(course.title):
+                newObj.append(course)
+        filter = 'All'
+        countCourse = len(newObj)
+        return render(request, 'mobileLearning/courses/listOfCourse.html',{'courses':newObj, 'countCourse':countCourse, 'filter': filter, 'search':search})
+    return render(request, 'mobileLearning/courses/listOfCourse.html', {'courses':obj, 'countCourse':countCourse, 'filter': filter, 'search':search})
 
 # mobileLearning/courses/courseStart/
 def lessonOne(request):
@@ -160,6 +223,7 @@ def answersOnQuestions(request):
 
 # mobileLearning/lections/
 def listOfLection(request):
+    search = ''
     filter = 'All'
     try:
         obj = Lection.objects.all() 
@@ -171,12 +235,26 @@ def listOfLection(request):
         obj = Lection.objects.all()
         filter = 'All'
         countLections = obj.count()
-        return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
+        
+        newObj = []
+        search = request.GET['input_text']
+        for lection in obj:
+            if search in str(lection.title):
+                newObj.append(lection)
+        countLections = len(newObj)
+        return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':newObj, 'countLections':countLections, 'filter': filter, 'search':search})
     if request.GET.get('navAndroid'):
         filter = 'Android'
         obj = Lection.objects.filter(direction = 'Android')
         countLections = obj.count()
-        return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
+
+        newObj = []
+        search = request.GET['input_text']
+        for lection in obj:
+            if search in str(lection.title):
+                newObj.append(lection)
+        countLections = len(newObj)
+        return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':newObj, 'countLections':countLections, 'filter': filter, 'search':search})
     if request.GET.get('navIOS'):
         try:
             filter = 'IOS'
@@ -185,8 +263,25 @@ def listOfLection(request):
         except:
             obj = None
             countLections = 0
-        return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
-    return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter})
+        
+        newObj = []
+        search = request.GET['input_text']
+        for lection in obj:
+            if search in str(lection.title):
+                newObj.append(lection)
+        countLections = len(newObj)
+        return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':newObj, 'countLections':countLections, 'filter': filter, 'search':search})
+    if request.GET.get('input_text'):
+        obj = Lection.objects.all()
+        newObj = []
+        search = request.GET['input_text']
+        for lection in obj:
+            if search in str(lection.title):
+                newObj.append(lection)
+        filter = 'All'
+        countLections = len(newObj)
+        return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':newObj, 'countLections':countLections, 'filter': filter, 'search':search})
+    return render(request, 'mobileLearning/lections/listOfLection.html',{'lections':obj, 'countLections':countLections, 'filter': filter, 'search':search})
 
 # mobileLearning/lections/lectionStart/
 def lectionEmulator(request):

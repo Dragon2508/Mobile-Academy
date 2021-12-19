@@ -249,10 +249,9 @@
                         Курсы
                     </div>
                     <div class="footer_right_course_descr">
-                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
-                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
-                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
-                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
+                        {% for course in courses %}
+                            <a href="{% url course.start_course %}" class="footer__item"><div>{{course.title}}</div></a>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="footer_right_lection">
@@ -261,10 +260,9 @@
                         <span>Лекции</span>
                     </div>
                     <div class="footer_right_lection_descr">
-                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
-                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
-                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
-                        <a href="" class="footer__item"><div>Создание курса с 0 под Android</div></a>
+                        {% for lection in lections %}
+                            <a href="{% url lection.start_lection %}" class="footer__item"><div>{{lection.title}}</div></a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

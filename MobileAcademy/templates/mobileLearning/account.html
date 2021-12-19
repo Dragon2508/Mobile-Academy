@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}
 {% load static %}  
-
+{% load  newTegs %} 
     {% block head %}<link rel="stylesheet" href="{% static 'css/account.css'%}">{% endblock head %}
     {% block title %}Личный кабинт{% endblock title %}
 
@@ -96,23 +96,24 @@
                     </div>
                     <div class="inner__block">
                         <p>Фамилия: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
-                        <input type="text" name="last_name" value="{{request.user.last_name}}">
+                        <input type="text" name="last_name" value="{% takeElement data 0 %}">
                         <p>Имя: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
-                        <input type="text" name="first_name" value="{{request.user.first_name}}">
+                        <input type="text" name="first_name" value="{% takeElement data 1 %}">
                         <p>Отчество: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
-                        <input type="text" name="second_name" value="{{request.user.profile.second_name}}">
+                        <input type="text" name="second_name" value="{% takeElement data 2 %}">
                         <p>Дата рождения:</p>
-                        <input type="date" name="birth_date" value="{{request.user.profile.birth_date|date:"Y-m-d"}}">
+                        {% takeElement data 3 as date %}
+                        <input type="date" name="birth_date" value="{{date|date:"Y-m-d"}}">
                     </div>
                     <div class="inner__block">
                         <p>Почта: <img src="{% static 'images/star.svg'%}" alt="star" width="5"></p>
-                        <input type="email" name="email" value="{{request.user.email}}">
+                        <input type="email" name="email" value="{% takeElement data 4 %}">
                         <p>Телефон:</p>
-                        <input type="text" name="phone" value="{{request.user.profile.phone}}">
+                        <input type="text" name="phone" value="{% takeElement data 5 %}">
                         <p>Город:</p>
-                        <input type="text" name="city" value="{{request.user.profile.city}}">
+                        <input type="text" name="city" value="{% takeElement data 6 %}">
                         <p>Область:</p>
-                        <input type="text" name="region"  value="{{request.user.profile.region}}">
+                        <input type="text" name="region"  value="{% takeElement data 7 %}">
                     </div>
                 </div>
             </div>

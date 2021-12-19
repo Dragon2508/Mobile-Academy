@@ -52,15 +52,17 @@
         <div class="container">
             <div class="listCourses_inner">
                 <div class="listCourses_inner_search">
-                    <input id="image_search" type="image" src="{% static 'images/Search.svg'%}" width="10"/>
-                    <input id="input_text" type="search" placeholder="Поиск"/>
+                    <form action = "{% url 'mobileLearning:listOfCourse' %}" method = GET>
+                        {% csrf_token %}
+                        <input id="image_search" type="image" src="{% static 'images/Search.svg'%}" width="10"/>
+                        <input id="input_text" type="search" name="input_text" placeholder="Поиск" value="{{search}}"/>
                 </div>
                 <div class="lineForSearch"></div>
                 <div class="listCourses_inner_block">
                     <div class="listCourses_inner_nav">
 
-                        <form action = "{% url 'mobileLearning:listOfCourse' %}" method = GET>
-                            {% csrf_token %}
+                        {% comment %} <form action = "{% url 'mobileLearning:listOfCourse' %}" method = GET>
+                            {% csrf_token %} {% endcomment %}
                                 {%if filter == 'All'%}
                                         <input type="submit" name="navAll" class="listCourses_inner_element navAll" style="color: #ffffff; background: #1a116e;" value="Все направления">
                                         <input type="submit" name="navAndroid" class="listCourses_inner_element navAll" value="Android">
